@@ -8,10 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'sd': { 'min': '760px', 'max': '1282px' },
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+    },
+    keyframes: {
+      scroll: {
+        "0%": { transform: "translateX(0)" },
+        "100%": { transform: "translateX(calc(-100% - 3rem))" },
+      },
+    },
+    animation: {
+      scroll: "scroll 30s linear infinite",
     },
   },
   plugins: [],

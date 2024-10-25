@@ -7,6 +7,7 @@ import MeSection from "@/components/me";
 import CustomerReviewsSection from "@/components/reviews";
 import RecentWorksSection from "@/components/recents";
 import GetInTouchSection from "@/components/getintouch";
+import FooterSection from "@/components/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,6 +39,7 @@ export default function Home() {
        <RecentWorksSection />
 
        <GetInTouchSection />
+       <FooterSection />
     </div>
   );
 }
