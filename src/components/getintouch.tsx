@@ -37,7 +37,7 @@ const GetInTouchSection = () => {
                       type="text"
                       name="firstName"
                       id="firstName"
-                      className="mt-1 p-2 border rounded-md w-full"
+                      className="mt-1 p-2 border rounded-md w-full text-black"
                     />
                   </div>
                   <div>
@@ -51,7 +51,7 @@ const GetInTouchSection = () => {
                       type="text"
                       name="lastName"
                       id="lastName"
-                      className="mt-1 p-2 border rounded-md w-full"
+                      className="mt-1 p-2 border rounded-md w-full text-black"
                     />
                   </div>
                 </div>
@@ -66,33 +66,36 @@ const GetInTouchSection = () => {
                     type="email"
                     name="email"
                     id="email"
-                    className="mt-1 p-2 border rounded-md w-full"
+                    className="mt-1 p-2 border rounded-md w-full text-black"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-black"
                   >
                     Phone number
                   </label>
                   <div className="mt-1 relative rounded-md shadow-sm">
-                    <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-3">
+                    <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
                       <span className="text-gray-500 sm:text-sm">+234</span>
                     </div>
                     <input
                       type="tel"
                       name="phone"
                       id="phone"
-                      className="block w-full pl-10 border rounded-md py-2 pr-10"
+                      className="block w-full pl-14 border rounded-md py-2 pr-10 text-black"
                       placeholder=""
+                      prefix="+234"
+                      required
+                      max={11}
                     />
                   </div>
                 </div>
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-black"
                   >
                     Message
                   </label>
@@ -100,12 +103,12 @@ const GetInTouchSection = () => {
                     name="message"
                     id="message"
                     rows={4}
-                    className="mt-1 p-2 border rounded-md w-full"
+                    className="mt-1 p-2 border rounded-md w-full resize-none text-black"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="bg-[#a68ea5] text-white font-normal py-2 px-4 rounded-lg"
+                  className="bg-[#a68ea5] text-white font-bold py-2 px-4 rounded-lg"
                 >
                   Send message
                 </button>
