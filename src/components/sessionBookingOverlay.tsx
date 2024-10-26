@@ -21,7 +21,6 @@ const SessionBookingOverlay: React.FC<SessionBookingOverlayProps> = ({
                     }}
                 >
                     <div className="w-96 h-96 p-4 bg-white rounded-2xl justify-start items-center gap-4 inline-flex">
-                        {/* ... (Your modal content from Figma code) ... */}
                         <p>Modal</p>
                     </div>
                 </div>

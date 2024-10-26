@@ -1,19 +1,70 @@
+import { motion } from 'framer-motion';
 import React, { useState } from 'react';
+import { PiSpinner } from 'react-icons/pi';
 
 
 
-interface GetInTouchFormData { };
+interface GetInTouchFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 
 const GetInTouchSection = () => {
-  const [formData, setFormData] = useState<GetInTouchFormData>();
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [errorMsg, setErrorMsg] = useState<string>()
+  const [successMsg, setSuccessMsg] = useState<string>()
+  const [formData, setFormData] = useState<GetInTouchFormData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (data: GetInTouchFormData) => {
-    console.log('Form submitted:', data);
+  const handleSubmit = (e: any) => {
+    e.preventDefault()
+    const { firstName, lastName, email, phone, message } = formData
+    if (firstName && lastName && email && phone && message) {
+      setIsLoading(true);
+      console.log('Form submitted: \n', formData);
+
+      fetch('/api/letsTalk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      }).then((response) => response.json()).then(data => {
+        setIsLoading(false);
+        if (data.status) {
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            message: '',
+          });
+
+          setSuccessMsg(data.message);
+          console.log('Form submitted:', JSON.stringify(data));
+          setTimeout(() => {
+            setSuccessMsg(undefined);
+          }, 2000);
+
+        } else {
+          setErrorMsg(data.message);
+          setTimeout(() => {
+            setErrorMsg(undefined);
+          }, 2000);
+        }
+      })
+    }
   };
 
   return (
@@ -42,6 +93,16 @@ const GetInTouchSection = () => {
               </p>
             </div>
             <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+              {errorMsg && (
+                <div className="m-4 text-[#ff0000] text-sm font-semibold capitalize">
+                  {errorMsg}
+                </div>
+              )}
+              {successMsg && (
+                <div className="m-4 text-green-500 text-center text-sm font-semibold capitalize">
+                  {successMsg}
+                </div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label
@@ -54,6 +115,8 @@ const GetInTouchSection = () => {
                     type="text"
                     name="firstName"
                     id="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     className="mt-1 p-2 border rounded-md w-full text-black"
                     required
                   />
@@ -69,6 +132,8 @@ const GetInTouchSection = () => {
                     type="text"
                     name="lastName"
                     id="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     className="mt-1 p-2 border rounded-md w-full text-black"
                     required
                   />
@@ -85,6 +150,8 @@ const GetInTouchSection = () => {
                   type="email"
                   name="email"
                   id="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="mt-1 p-2 border rounded-md w-full text-black"
                   required
                 />
@@ -107,6 +174,8 @@ const GetInTouchSection = () => {
                     className="block w-full pl-14 border rounded-md py-2 pr-10 text-black"
                     placeholder=""
                     prefix="+234"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     required
                     max={11}
                   />
@@ -125,13 +194,24 @@ const GetInTouchSection = () => {
                   rows={4}
                   className="mt-1 p-2 border rounded-md w-full resize-none text-black"
                   required
+                  value={formData.message}
+                  onChange={handleInputChange}
                 />
               </div>
               <button
                 type="submit"
+                disabled={isLoading}
+                onClick={handleSubmit}
                 className="bg-[#a68ea5] text-white font-bold py-2 px-4 rounded-lg"
               >
-                Send message
+                {isLoading ? (
+                  <motion.span
+                    animate={{ rotate: 360, transition: { duration: 1, repeat: Infinity } }}
+                    className="inline-block"
+                  >
+                    <PiSpinner className="animate-spin h-6 w-6 text-white" />
+                  </motion.span>
+                ) : ("Send message")}
               </button>
             </form>
           </div>
