@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
-import { PiSpinner } from 'react-icons/pi';
+import { BsEnvelopePaper } from 'react-icons/bs';
+import { FaFacebook, FaFacebookF, FaFacebookMessenger, FaFacebookSquare } from 'react-icons/fa';
+import { FaInstagram, FaSquareFacebook, FaWhatsapp } from 'react-icons/fa6';
+import { PiEnvelopeBold, PiEnvelopeSimple, PiSpinner } from 'react-icons/pi';
 
 
 
@@ -85,8 +88,31 @@ const GetInTouchSection = () => {
               Have a question or would you like to book an appointment? Drop me a
               message and I'll get back to you as soon as possible.
             </p>
+
+            <div className="email socials flex flex-col gap-4">
+              <div className="flex items-center gap-2">
+                <BsEnvelopePaper color='black' size={24} />
+                <a href="mailto:contact@eunicemakeover.com.ng" className="text-black text-base font-normal leading-relaxed tracking-tight hover:underline">
+                  contact@eunicemakeover.com.ng
+                </a>
+
+              </div>
+              <div className="flex items-center gap-4 cursor-pointer">
+                <a href="https://www.instagram.com/unice_makeover_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram color='black' size={34} />
+                </a>
+                <a href="https://wa.me/message/NXQ34HB55DEII1" target="_blank" rel="noopener noreferrer">
+                  <FaWhatsapp color='black' size={34} />
+                </a>
+                <a href="https://www.facebook.com/oyekan.eunice.1?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
+                  <FaFacebookSquare color='black' size={34} />
+                </a>
+              </div>
+            </div>
+
+
           </div>
-          <div className="bg-[#f9f9f9] rounded-2xl shadow p-6 max-w-[30rem]">
+          <div className="bg-[#f9f9f9] rounded-2xl sm:ml-[9rem] shadow p-6 max-w-[30rem]">
             <div className="mb-6">
               <h3 className="text-2xl font-normal text-black leading-loose">
                 Let’s Talk
