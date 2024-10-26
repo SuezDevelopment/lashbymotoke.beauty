@@ -16,7 +16,7 @@ const MeSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    <img src={RedMid.src} alt="Eunice Makeover 3" className="h-80 md:h-full rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform" />
+                    <img src={RedMid.src} alt="Eunice Makeover 3" className="h-80 md:h-full rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform object-cover" />
                 </motion.div>
 
                 <motion.div
@@ -25,8 +25,7 @@ const MeSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                    <img src={RedMid.src} alt="Eunice Makeover 2" className="w-full h-80 max-w-80 upside-down md:h-full rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform filter grayscale" />
-
+                    <img src={RedMid.src} alt="Eunice Makeover 2" className="w-full h-80 max-w-80 upside-down md:h-full rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform filter grayscale object-cover" />
                 </motion.div>
 
                 <motion.div
@@ -35,7 +34,7 @@ const MeSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    <img src={RedMid.src} alt="Eunice Makeover 3" className="invert h-80 md:h-full upside-down rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform filter my-image" />
+                    <img src={RedMid.src} alt="Eunice Makeover 3" className="invert h-80 md:h-full upside-down rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform filter my-image object-cover" />
                 </motion.div>
             </motion.div>
             <motion.div

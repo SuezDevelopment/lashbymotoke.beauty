@@ -38,7 +38,7 @@ const NavHeader = () => {
             </div>
             <div className="lg:flex items-center gap-4 hidden">
                 <a
-                    href="#"
+                    href="#pricing"
                     className="text-base font-normal text-black leading-relaxed tracking-tight"
                 >
                     Pricing
@@ -47,7 +47,7 @@ const NavHeader = () => {
                     /
                 </span>
                 <a
-                    href="#"
+                    href="#services"
                     className="text-base font-normal text-black leading-relaxed tracking-tight"
                 >
                     Services
@@ -56,7 +56,7 @@ const NavHeader = () => {
                     /
                 </span>
                 <a
-                    href="#"
+                    href="#contact"
                     className="text-base font-normal text-black leading-relaxed tracking-tight"
                 >
                     Contact us
@@ -99,24 +99,24 @@ const NavHeader = () => {
                     <ul className="py-4 px-6 space-y-4">
                         <li>
                             <a
-                                href="#"
-                                className="text-base font-normal text-black leading-relaxed tracking-tight block"
+                                href="#pricing"
+                                className="text-base font-normal text-black leading-relaxed tracking-tight block text-center"
                             >
                                 Pricing
                             </a>
                         </li>
                         <li>
                             <a
-                                href="#"
-                                className="text-base font-normal text-black leading-relaxed tracking-tight block"
+                                href="#services"
+                                className="text-base font-normal text-black leading-relaxed tracking-tight block text-center"
                             >
                                 Services
                             </a>
                         </li>
                         <li>
                             <a
-                                href="#"
-                                className="text-base font-normal text-black leading-relaxed tracking-tight block"
+                                href="#contact"
+                                className="text-base font-normal text-black leading-relaxed tracking-tight block text-center"
                             >
                                 Contact us
                             </a>

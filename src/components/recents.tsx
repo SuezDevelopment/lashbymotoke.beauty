@@ -1,14 +1,13 @@
 import { motion } from 'framer-motion';
-import { p } from 'framer-motion/client';
 import Recent, { useState, useRef, useEffect } from 'react';
-
+import RedMid from '@/assets/images/red.jpeg'
 const RecentWorksSection = () => {
     const imageUrls = [
         "https://via.placeholder.com/628x730",
         "https://via.placeholder.com/628x730",
         "https://via.placeholder.com/628x730",
         "https://via.placeholder.com/628x730",
-        "https://via.placeholder.com/628x730",
+        RedMid.src,
     ];
 
     const containerRef = useRef<HTMLDivElement>(null);
