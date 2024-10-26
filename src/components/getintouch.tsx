@@ -90,13 +90,7 @@ const GetInTouchSection = () => {
             </p>
 
             <div className="email socials flex flex-col gap-4">
-              <div className="flex items-center gap-2">
-                <BsEnvelopePaper color='black' size={24} />
-                <a href="mailto:contact@eunicemakeover.com.ng" className="text-black text-base font-normal leading-relaxed tracking-tight hover:underline">
-                  contact@eunicemakeover.com.ng
-                </a>
 
-              </div>
               <div className="flex items-center gap-4 cursor-pointer">
                 <a href="https://www.instagram.com/unice_makeover_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
                   <FaInstagram color='black' size={34} />
@@ -108,9 +102,13 @@ const GetInTouchSection = () => {
                   <FaFacebookSquare color='black' size={34} />
                 </a>
               </div>
+              <div className="flex items-center gap-2">
+                <BsEnvelopePaper color='black' size={24} />
+                <a href="mailto:contact@eunicemakeover.com.ng" className="text-black text-base font-normal leading-relaxed tracking-tight hover:underline">
+                  contact@eunicemakeover.com.ng
+                </a>
+              </div>
             </div>
-
-
           </div>
           <div className="bg-[#f9f9f9] rounded-2xl sm:ml-[9rem] shadow p-6 max-w-[30rem]">
             <div className="mb-6">
