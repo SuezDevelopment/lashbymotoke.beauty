@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 const ServicesSection = () => {
     return (
-        <section className="py-20 px-6 sm:px-8 lg:px-20">
+        <section id='services' className="py-20 px-6 sm:px-8 lg:px-20">
             <motion.div
                 className="flex flex-col lg:flex-row justify-between md:items-center  gap-16"
                 initial={{ opacity: 0, y: 20 }}

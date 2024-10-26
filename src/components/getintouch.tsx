@@ -34,7 +34,6 @@ const GetInTouchSection = () => {
     const { firstName, lastName, email, phone, message } = formData
     if (firstName && lastName && email && phone && message) {
       setIsLoading(true);
-      console.log('Form submitted: \n', formData);
 
       fetch('/api/letsTalk', {
         method: 'POST',
@@ -64,6 +63,11 @@ const GetInTouchSection = () => {
           }, 2000);
         }
       })
+    } else {
+      setErrorMsg("All fields are required!");
+      setTimeout(() => {
+        setErrorMsg(undefined);
+      }, 2000);
     }
   };
 

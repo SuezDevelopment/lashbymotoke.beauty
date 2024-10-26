@@ -100,6 +100,7 @@ const NavHeader = () => {
                         <li>
                             <a
                                 href="#pricing"
+                                onClick={() => setIsMenuOpen(false)}
                                 className="text-base font-normal text-black leading-relaxed tracking-tight block text-center"
                             >
                                 Pricing
@@ -108,6 +109,7 @@ const NavHeader = () => {
                         <li>
                             <a
                                 href="#services"
+                                onClick={() => setIsMenuOpen(false)}
                                 className="text-base font-normal text-black leading-relaxed tracking-tight block text-center"
                             >
                                 Services
@@ -116,6 +118,7 @@ const NavHeader = () => {
                         <li>
                             <a
                                 href="#contact"
+                                onClick={() => setIsMenuOpen(false)}
                                 className="text-base font-normal text-black leading-relaxed tracking-tight block text-center"
                             >
                                 Contact us
