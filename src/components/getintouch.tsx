@@ -80,7 +80,7 @@ const GetInTouchSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="flex flex-col justify-center items-start gap-6">
             <div className="px-6 py-2.5 border-l-8 border-black">
-              <h2 className="text-xl font-normal text-black leading-loose">
+              <h2 className="text-xl font-bold text-black leading-loose">
                 GET IN TOUCH
               </h2>
             </div>
@@ -90,22 +90,21 @@ const GetInTouchSection = () => {
             </p>
 
             <div className="email socials flex flex-col gap-4">
-
-              <div className="flex items-center gap-4 cursor-pointer">
-                <a href="https://www.instagram.com/unice_makeover_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
-                  <FaInstagram color='black' size={34} />
-                </a>
-                <a href="https://wa.me/message/NXQ34HB55DEII1" target="_blank" rel="noopener noreferrer">
-                  <FaWhatsapp color='black' size={34} />
-                </a>
-                <a href="https://www.facebook.com/oyekan.eunice.1?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
-                  <FaFacebookSquare color='black' size={34} />
-                </a>
-              </div>
               <div className="flex items-center gap-2">
                 <BsEnvelopePaper color='black' size={24} />
                 <a href="mailto:contact@eunicemakeover.com.ng" className="text-black text-base font-normal leading-relaxed tracking-tight hover:underline">
                   contact@eunicemakeover.com.ng
+                </a>
+              </div>
+              <div className="flex items-center gap-4 cursor-pointer">
+                <a href="https://www.instagram.com/unice_makeover_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram color='black' size={24} />
+                </a>
+                <a href="https://wa.me/message/NXQ34HB55DEII1" target="_blank" rel="noopener noreferrer">
+                  <FaWhatsapp color='black' size={24} />
+                </a>
+                <a href="https://www.facebook.com/oyekan.eunice.1?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
+                  <FaFacebookSquare color='black' size={24} />
                 </a>
               </div>
             </div>
