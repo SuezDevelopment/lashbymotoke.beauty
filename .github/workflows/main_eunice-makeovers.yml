@@ -16,7 +16,7 @@ permissions:
 env:
   AZURE_WEBAPP_NAME: eunice-makeovers    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project
-  NODE_VERSION: '20.11.15'          # set this to match the version in your package.json
+  NODE_VERSION: '20.16.0'          # set this to match the version in your package.json
   ACR_NAME: eunice                # set this to your Azure Container Registry name
 
 jobs:
