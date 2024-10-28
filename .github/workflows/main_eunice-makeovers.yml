@@ -36,9 +36,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0E3C2CE7989A4041BBC82F95DF58A679 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C3AF89E988A1473291F39BB11140E6B1 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B3956630729245CFB757653B24BE66F5 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8169C09371C9481EA600AF46ABEBDF2F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7DDE3ED908254F7B84D8340A5E637270 }}
 
       - name: Login to Azure Container Registry
         uses: azure/docker-login@v1
