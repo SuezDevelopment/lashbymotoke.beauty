@@ -7,7 +7,6 @@ COPY package.json package-lock.json ./
 
 COPY . .
 
-# Build your app
 RUN npm run build
 
 EXPOSE 3000
