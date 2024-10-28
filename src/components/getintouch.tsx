@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { BsEnvelopePaper } from 'react-icons/bs';
-import { FaFacebook, FaFacebookF, FaFacebookMessenger, FaFacebookSquare } from 'react-icons/fa';
-import { FaInstagram, FaSquareFacebook, FaWhatsapp } from 'react-icons/fa6';
-import { PiEnvelopeBold, PiEnvelopeSimple, PiSpinner } from 'react-icons/pi';
-
-
+import {  FaFacebookSquare } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp } from 'react-icons/fa6';
+import { PiSpinner } from 'react-icons/pi';
 
 interface GetInTouchFormData {
   firstName: string;
@@ -54,7 +52,6 @@ const GetInTouchSection = () => {
           });
 
           setSuccessMsg(data.message);
-          console.log('Form submitted:', JSON.stringify(data));
           setTimeout(() => {
             setSuccessMsg(undefined);
           }, 2000);
