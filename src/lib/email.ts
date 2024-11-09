@@ -1,3 +1,3 @@
 class EmailService {
-    private emailService: any;
+    private emailService2: any;
 }
