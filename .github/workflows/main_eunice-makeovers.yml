@@ -9,10 +9,6 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  id-token: write
-  contents: read
-
 env:
   AZURE_WEBAPP_NAME: eunice-makeovers    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project
