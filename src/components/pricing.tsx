@@ -151,11 +151,11 @@ const PricingSection = () => {
                                                 </div>
                                                 <div className="w-1/2 flex flex-col justify-between py-8">
                                                     <h3 className="text-xl font-bold">{service.title}</h3>
-                                                    <p className="font-bold">{service.price_per_session}</p>
-                                                    <p className="text-muted-foreground">{service.description}</p>
-                                                    <p className="text-muted-foreground">{service.location}</p>
-                                                    <p className="text-muted-foreground">{service.open_days}</p>
-                                                    <p className="text-muted-foreground">Duration: {service.duration}</p>
+                                                    <p className="md:text-xl">{service.price_per_session}</p>
+                                                    <p className="text-muted-foreground md:text-xl">{service.description}</p>
+                                                    <p className="text-muted-foreground md:text-xl">{service.location}</p>
+                                                    <p className="text-muted-foreground md:text-xl">{service.open_days}</p>
+                                                    <p className="text-muted-foreground md:text-xl">Duration: {service.duration}</p>
                                                     <button className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 mt-2 p-2 rounded transition-colors">Book Now</button>
                                                 </div>
                                             </div>
