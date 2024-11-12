@@ -141,8 +141,8 @@ const PricingSection = () => {
                             />
                         </div>
                         {homeDropDown && (
-                            <div className="absolute top-full z-50 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4">
-                                <div className="flex z-50 flex-col w-full gap-4">
+                            <div className="absolute top-full z-40 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4">
+                                <div className="flex z-40 flex-col w-full gap-4">
                                     {homeServices.map((service, index) => {
                                         return (
                                             <div key={index} className="flex w-full h-[400px] border border-white rounded-3xl p-4 gap-8">
