@@ -20,7 +20,7 @@ const NavHeader = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full rounded-lg shadow-lg px-4 py-4 sm:px-8 lg:px-20 flex items-center justify-between z-10 ${isScrolled
+            className={`fixed top-0 left-0 w-full rounded-lg shadow-lg px-4 py-4 sm:px-8 lg:px-20 flex items-center justify-between z-40 ${isScrolled
                 ? "bg-red shadow-lg border-b border-red-300"
                 : "bg-transparent shadow-lg border-b border-gray-300"
                 }`}

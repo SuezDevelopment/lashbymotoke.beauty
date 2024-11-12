@@ -14,7 +14,7 @@ const ServicesSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    <h2 className="text-xl font-bold text-black text-left">
+                    <h2 className="text-xl md:text-2xl font-bold text-black text-left">
                         MY SERVICES
                     </h2>
                 </motion.div>
@@ -25,10 +25,10 @@ const ServicesSection = () => {
                     transition={{ duration: 0.8, delay: 0.6 }}
                 >
                     <div className="flex flex-col gap-2.5">
-                        <h3 className="text-xl font-bold text-black text-right">
+                        <h3 className="text-xl md:text-2xl font-bold text-black text-right">
                             Bridal Makeup
                         </h3>
-                        <p className="text-base font-normal text-black text-right">
+                        <p className="text-base font-normal md:text-xl text-black text-right">
                             I do bridal makeup that ensures you look radiant and flawless on
                             your special day. Whether you want a classic, glamorous, or
                             natural look, I customize each application to match your style and
@@ -39,10 +39,10 @@ const ServicesSection = () => {
                         </p>
                     </div>
                     <div className="flex flex-col gap-2.5 text-left">
-                        <h3 className="text-xl font-bold text-black text-left lg:text-left">
+                        <h3 className="text-xl md:text-2xl font-bold text-black text-left lg:text-left">
                             Photoshoot Makeup
                         </h3>
-                        <p className="text-base font-normal text-black text-left lg:text-left">
+                        <p className="text-base font-normal md:text-xl text-black text-left lg:text-left">
                             I do professional photoshoot makeup, ensuring you're camera-ready
                             with a flawless, long-lasting look. Whether it’s for fashion,
                             editorial, or commercial shoots, I tailor the makeup to complement
