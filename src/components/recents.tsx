@@ -3,16 +3,22 @@
 import { motion } from 'framer-motion';
 import React, { useState, useRef, useEffect } from 'react';
 import RedMid from '@/assets/images/red.jpeg'
+import Recent1 from '@/assets/images/recent1.png'
+import Recent3 from '@/assets/images/recent3.png'
+import Recent4 from '@/assets/images/recent4.png'
+import Recent5 from '@/assets/images/recent5.png'
+import Recent6 from '@/assets/images/recent6.png'
 
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 
 const RecentWorksSection = () => {
     const imageUrls = [
+        Recent1.src,
         RedMid.src,
-        RedMid.src,
-        RedMid.src,
-        "https://via.placeholder.com/628x730",
-        RedMid.src,
+        Recent3.src,
+        Recent4.src,
+        Recent5.src,
+        Recent6.src,
     ];
 
     const [isMobile, setIsMobile] = useState(true);
