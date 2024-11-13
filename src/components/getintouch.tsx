@@ -180,14 +180,14 @@ const GetInTouchSection = () => {
                   required
                 />
               </div>
-              <div>
+              <div className='z-0'>
                 <label
                   htmlFor="phone"
                   className="block text-sm font-medium text-black"
                 >
                   Phone number
                 </label>
-                <div className="mt-1 relative z-1 rounded-md shadow-sm">
+                <div className="mt-1 relative  rounded-md shadow-sm">
                   <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
                     <span className="text-gray-500 sm:text-sm">+234</span>
                   </div>

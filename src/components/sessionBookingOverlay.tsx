@@ -13,7 +13,7 @@ const SessionBookingOverlay: React.FC<SessionBookingOverlayProps> = ({
         <>
             {isModalOpen && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+                    className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-50"
                     onClick={(e) => {
                         if (e.target === e.currentTarget) {
                             setIsModalOpen(false);

@@ -103,7 +103,6 @@ const RecentWorksSection = () => {
                             </motion.div>
                         )}
                     </div>
-
                     <button 
                         onClick={nextSlide}
                         className="absolute right-0 z-10 bg-black/30 hover:bg-black/50 text-white p-6 rounded-full"

@@ -101,8 +101,8 @@ const PricingSection = () => {
                             />
                         </div>
                         {studioDropDown && (
-                            <div className="absolute top-full z-50 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4">
-                                <div className="flex z-50 flex-col w-full gap-4">
+                            <div className="absolute top-full z-30 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4">
+                                <div className="flex z-30 flex-col w-full gap-4">
                                     {studioServices.map((service, index) => {
                                         return (
                                             <div key={index} className="flex w-full h-[400px] border border-white rounded-3xl p-4 gap-8">
@@ -110,12 +110,12 @@ const PricingSection = () => {
                                                     <img src={service.image} alt={service.title} className="w-full h-full object-cover rounded-3xl" />
                                                 </div>
                                                 <div className="w-1/2 flex flex-col justify-between py-8">
-                                                    <h3 className="text-xl font-bold">{service.title}</h3>
+                                                    <h3 className="md:text-xl font-bold">{service.title}</h3>
                                                     <p className="font-bold">{service.price_per_session}</p>
-                                                    <p className="text-muted-foreground">{service.description}</p>
-                                                    <p className="text-muted-foreground">{service.location}</p>
-                                                    <p className="text-muted-foreground">{service.open_days}</p>
-                                                    <p className="text-muted-foreground">Duration: {service.duration}</p>
+                                                    <p className="text-sm md:text-muted-foreground">{service.description}</p>
+                                                    <p className="text-sm md:text-muted-foreground">{service.location}</p>
+                                                    <p className="text-sm md:text-muted-foreground">{service.open_days}</p>
+                                                    <p className="text-sm md:text-muted-foreground">Duration: {service.duration}</p>
                                                     <button className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 mt-2 p-2 rounded transition-colors">Book Now</button>
                                                 </div>
                                             </div>
@@ -141,21 +141,21 @@ const PricingSection = () => {
                             />
                         </div>
                         {homeDropDown && (
-                            <div className="absolute top-full z-40 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4">
-                                <div className="flex z-40 flex-col w-full gap-4">
+                            <div className="absolute top-full z-20 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4">
+                                <div className="flex z-20 flex-col w-full gap-4">
                                     {homeServices.map((service, index) => {
                                         return (
                                             <div key={index} className="flex w-full h-[400px] border border-white rounded-3xl p-4 gap-8">
                                                 <div className='w-1/2 h-full'>
                                                     <img src={service.image} alt={service.title} className="w-full h-full object-cover rounded-3xl" />
                                                 </div>
-                                                <div className="w-1/2 flex flex-col justify-between py-8">
-                                                    <h3 className="text-xl font-bold">{service.title}</h3>
-                                                    <p className="md:text-xl">{service.price_per_session}</p>
-                                                    <p className="text-muted-foreground md:text-xl">{service.description}</p>
-                                                    <p className="text-muted-foreground md:text-xl">{service.location}</p>
-                                                    <p className="text-muted-foreground md:text-xl">{service.open_days}</p>
-                                                    <p className="text-muted-foreground md:text-xl">Duration: {service.duration}</p>
+                                                <div className="w-1/2 flex flex-col justify-between md:py-8">
+                                                    <h3 className="md:text-xl font-bold">{service.title}</h3>
+                                                    <p className="text-sm md:text-xl">{service.price_per_session}</p>
+                                                    <p className="text-sm md:text-muted-foreground md:text-xl">{service.description}</p>
+                                                    <p className="text-sm md:text-muted-foreground md:text-xl">{service.location}</p>
+                                                    <p className="text-sm md:text-muted-foreground md:text-xl">{service.open_days}</p>
+                                                    <p className="text-sm md:text-muted-foreground md:text-xl">Duration: {service.duration}</p>
                                                     <button className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 mt-2 p-2 rounded transition-colors">Book Now</button>
                                                 </div>
                                             </div>
