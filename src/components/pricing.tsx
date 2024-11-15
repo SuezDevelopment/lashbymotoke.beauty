@@ -125,7 +125,7 @@ const PricingSection = () => {
                             </div>
                         )}
                     </div>
-                    <div className="p-4 z-50 rounded-2xl border border-white justify-between items-center inline-flex w-full relative" onClick={() => openHomeDropDown(!homeDropDown)}>
+                    <div className="p-4 rounded-2xl border border-white justify-between items-center inline-flex w-full relative" onClick={() => openHomeDropDown(!homeDropDown)}>
                         <div className="flex justify-between items-center gap-6">
                             <div className="text-base md:text-xl font-normal leading-relaxed tracking-tight">
                                 2.
@@ -141,11 +141,11 @@ const PricingSection = () => {
                             />
                         </div>
                         {homeDropDown && (
-                            <div className="absolute top-full z-50 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4">
+                            <div className="absolute top-full left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4">
                                 <div className="flex z-20 flex-col w-full gap-4">
                                     {homeServices.map((service, index) => {
                                         return (
-                                            <div key={index} className="flex z-50 w-full h-[400px] border border-white rounded-3xl p-4 gap-8">
+                                            <div key={index} className="flex w-full h-[400px] border border-white rounded-3xl p-4 gap-8">
                                                 <div className='w-1/2 h-full'>
                                                     <img src={service.image} alt={service.title} className="w-full h-full object-cover rounded-3xl" />
                                                 </div>

@@ -16,7 +16,7 @@ const MeSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    <img src={RedMid.src} alt="Eunice Makeover 3" className="h-80 md:h-full rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform object-cover" />
+                    <img src={RedMid.src} alt="Eunice Makeover 1" className="h-80 md:h-full rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform object-cover" />
                 </motion.div>
 
                 <motion.div
