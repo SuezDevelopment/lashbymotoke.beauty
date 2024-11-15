@@ -153,7 +153,7 @@ const NavHeader = () => {
             </nav>
 
             {isModalOpen && (
-                <SessionBookingModal setIsModalOpen={setIsModalOpen} />
+                <SessionBookingModal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
             )}
         </>
     );
@@ -161,7 +161,7 @@ const NavHeader = () => {
 
 export default NavHeader;
 
-export const SessionBookingModal = ({ setIsModalOpen }: any) => {
+export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
 
     const [step, setStep] = useState(1)
     const [formData, setFormData] = useState<SessionBookingFormData>({
@@ -194,7 +194,7 @@ export const SessionBookingModal = ({ setIsModalOpen }: any) => {
                     {step === 1 && (
                         <div className="flex flex-col md:flex-row gap-6">
                             <BookingImage src={Recent3.src} />
-                            <div className="w-full md:w-full flex flex-col gap-6 md:px-12">
+                            <div className="w-full md:w-full flex flex-col gap-6 md:p-8 md:px-8">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
                                         <h2 className="text-2xl font-normal">Book A Session</h2>
@@ -266,7 +266,7 @@ export const SessionBookingModal = ({ setIsModalOpen }: any) => {
                     {step === 2 && (
                         <div className="flex flex-col md:flex-row gap-6">
                             <BookingImage src={Recent3.src} />
-                            <div className="w-full md:w-full flex flex-col gap-6 md:px-12">
+                            <div className="w-full md:w-full flex flex-col gap-6 md:p-8 md:px-8">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
                                         <h2 className="text-2xl font-normal">Book A Session</h2>
@@ -339,7 +339,7 @@ export const SessionBookingModal = ({ setIsModalOpen }: any) => {
                     {step === 3 && (
                         <div className="flex flex-col md:flex-row gap-6">
                             <BookingImage src={Recent3.src} />
-                            <div className="w-full md:w-full flex flex-col gap-6 md:px-12">
+                            <div className="w-full md:w-full flex flex-col gap-6 md:p-8 md:px-8">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
                                         <h2 className="text-2xl font-normal">Book A Session</h2>
