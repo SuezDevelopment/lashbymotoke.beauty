@@ -32,38 +32,13 @@ const CustomerReviewsSection = () => {
                     Customer Reviews
                 </div>
             </div>
-            {/* <>
-                {Array(1)
-                    .fill(null)
-                    .map((_, index) => (
-                        <div
-                            key={index}
-                            aria-hidden={index === 1}
-                            className="flex min-w-full shrink-0 animate-scroll items-center justify-around gap-12"
-                        >
-                            {reviews.map((review, index) => {
-                                return (
-                                    <div className="mx-5 h-16 w-40" key={index}>
-                                        <img
-                                            className="h-full w-full object-contain text-black"
-                                            src="assets/svgs/home-carousel/openzephilin.svg"
-                                            alt="companies"
-                                            width={1000}
-                                            height={500}
-                                        />
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    ))}
-            </> */}
-            <div className="w-full mt-2 border-t border-black/25 md:border-none justify-end items-center flex gap-2 flex overflow-hidden">
+            <div className="w-full mt-2 border-t border-black/25 md:border-none justify-end items-center flex gap-2 overflow-hidden">
                 <div
-                    className="flex min-w-full shrink-0 animate-scroll items-center justify-around gap-12"
+                    className="flex animate-infinite-scroll items-center gap-12"
                 >
-                    {reviews.map((review, index) => {
+                    {[...reviews, ...reviews].map((review, index) => {
                         return (
-                            <div key={index} className="px-4 border-l border-black/25 justify-start items-center gap-4 flex">
+                            <div key={index} className="px-4 shrink-0 border-l border-black/25 justify-start items-center gap-4 flex">
                                 <div className="text-center text-black text-base font-normal leading-10">
                                     {review.review}
                                 </div>

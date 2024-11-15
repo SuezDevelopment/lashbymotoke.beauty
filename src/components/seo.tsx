@@ -14,7 +14,7 @@ export default function SEO({ title, description, ogImage, keywords }: SEOProps)
     const defaultTitle = "Eunice Makeover - Professional Bridal & Photoshoot Makeup Artist in Lagos";
     const defaultDescription = "Eunice Makeover is a renowned makeup artist specializing in bridal and photoshoot makeup in Lagos. With years of experience, Eunice creates stunning, customized looks that ensure you look radiant and flawless on your special day or camera-ready for any photoshoot. Book your appointment today!"
     const defaultOGImage = '/mbe.png'
-    const defaultKeywords = "bridal makeup Lagos, photoshoot makeup Lagos, professional makeup artist Lagos, Eunice Makeover, makeup artist Nigeria, wedding makeup artist, bridal makeup artist Nigeria, photoshoot makeup artist Nigeria, beauty services Lagos, makeup artist services Lagos, glamorous bridal makeup"
+    const defaultKeywords = "eunice makeup, bridal makeup Lagos, photoshoot makeup Lagos, professional makeup artist Lagos, Eunice Makeover, makeup artist Nigeria, wedding makeup artist, bridal makeup artist Nigeria, photoshoot makeup artist Nigeria, beauty services Lagos, makeup artist services Lagos, glamorous bridal makeup"
     title = title || defaultTitle
     description = description || defaultDescription
     ogImage = ogImage || defaultOGImage
