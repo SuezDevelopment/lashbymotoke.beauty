@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { BsEnvelopePaper } from 'react-icons/bs';
-import {  FaFacebookSquare } from 'react-icons/fa';
+import { FaFacebookSquare } from 'react-icons/fa';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa6';
 import { PiSpinner } from 'react-icons/pi';
 
@@ -188,6 +188,9 @@ const GetInTouchSection = () => {
                   Phone number
                 </label>
                 <div className="mt-1 rounded-md shadow-sm">
+                  <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
+                    <span className="text-gray-500 sm:text-sm">+234</span>
+                  </div>
                   <input
                     type="tel"
                     name="phone"
