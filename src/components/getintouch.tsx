@@ -4,6 +4,7 @@ import { BsEnvelopePaper } from 'react-icons/bs';
 import { FaFacebookSquare } from 'react-icons/fa';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa6';
 import { PiSpinner } from 'react-icons/pi';
+import { GoLocation } from 'react-icons/go';
 
 interface GetInTouchFormData {
   firstName: string;
@@ -93,6 +94,18 @@ const GetInTouchSection = () => {
                   contact@eunicemakeover.com.ng
                 </a>
               </div>
+              <div className="flex items-center gap-2">
+                <GoLocation color='black' size={24} />
+                <a
+                  href="https://maps.google.com/?q=133+Ahmadu+Bello+Way+Victoria+Island+Lagos+106104"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black text-base font-normal leading-relaxed tracking-tight hover:underline"
+                >
+                  133 Ahmadu Bello Wy, VI, Lagos
+                </a>
+              </div>
+
               <div className="flex items-center gap-4 cursor-pointer">
                 <a href="https://www.instagram.com/unice_makeover_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
                   <FaInstagram color='black' size={24} />
