@@ -193,14 +193,8 @@ export const SessionBookingModal = ({ setIsModalOpen }: any) => {
                 <form onSubmit={handleSubmit}>
                     {step === 1 && (
                         <div className="flex flex-col md:flex-row gap-6">
-                            <div className="w-full md:w-1/2">
-                                <img
-                                    className="w-full h-[100%] object-cover rounded-lg"
-                                    src={Recent3.src}
-                                    alt="Booking preview"
-                                />
-                            </div>
-                            <div className="w-full md:w-full flex flex-col gap-6 p-8 md:px-12">
+                            <BookingImage src={Recent3.src} />
+                            <div className="w-full md:w-full flex flex-col gap-6 md:px-12">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
                                         <h2 className="text-2xl font-normal">Book A Session</h2>
@@ -225,7 +219,6 @@ export const SessionBookingModal = ({ setIsModalOpen }: any) => {
                                                 />
                                             </svg>
                                         </button>
-
                                     </div>
                                     <p className="text-black/50 text-sm">Fill in the following to book a makeup appointment</p>
                                 </div>
@@ -272,13 +265,7 @@ export const SessionBookingModal = ({ setIsModalOpen }: any) => {
 
                     {step === 2 && (
                         <div className="flex flex-col md:flex-row gap-6">
-                            <div className="w-full md:w-1/2">
-                                <img
-                                    className="w-full h-[100%] object-cover rounded-lg"
-                                    src={Recent3.src}
-                                    alt="Booking preview"
-                                />
-                            </div>
+                            <BookingImage src={Recent3.src} />
                             <div className="w-full md:w-full flex flex-col gap-6 p-8 md:px-12">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
@@ -351,13 +338,7 @@ export const SessionBookingModal = ({ setIsModalOpen }: any) => {
                     )}
                     {step === 3 && (
                         <div className="flex flex-col md:flex-row gap-6">
-                            <div className="w-full md:w-1/2">
-                                <img
-                                    className="w-full h-[100%] object-cover rounded-lg"
-                                    src={Recent3.src}
-                                    alt="Booking preview"
-                                />
-                            </div>
+                            <BookingImage src={Recent3.src} />
                             <div className="w-full md:w-full flex flex-col gap-6 p-8 md:px-12">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
@@ -477,9 +458,18 @@ export const SessionBookingModal = ({ setIsModalOpen }: any) => {
                         </div>
                     )}
                     {step === 4 && (<></>)}
-
                 </form>
             </div>
         </div>
     );
 }
+
+const BookingImage = ({ src }: { src: string }) => (
+    <div className="w-full md:w-1/2">
+        <img
+            className="w-full h-40 md:h-[100%] object-cover rounded-lg"
+            src={src}
+            alt="Booking preview"
+        />
+    </div>
+);
