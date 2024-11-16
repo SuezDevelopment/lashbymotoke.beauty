@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import RedMid from '@/assets/images/red.jpeg'
 import Recent3 from '@/assets/images/recent3.png'
-import { formatDate } from '@/lib/tools';
+import Recent4 from '@/assets/images/recent4.png'
+import Recent5 from '@/assets/images/recent5.png'
+import { formatDate, formatTime } from '@/lib/tools';
 interface SessionBookingFormData {
     serviceType: string;
     scheduleDate: string;
@@ -164,6 +166,7 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                                             type="time"
                                             id='scheduleTime'
                                             name='scheduleTime'
+                                            step="1800"
                                             className="flex-1 p-3 font-semibold rounded-lg border border-black/25"
                                             value={formData.scheduleTime}
                                             onChange={handleInputChange}
@@ -181,7 +184,7 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
 
                     {step === 2 && (
                         <div className="flex flex-col md:flex-row gap-6">
-                            <BookingImage src={Recent3.src} />
+                            <BookingImage src={RedMid.src} />
                             <div className="w-full md:w-full flex flex-col gap-6 md:p-8 md:px-8">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
@@ -343,16 +346,13 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                                         Phone number
                                     </label>
                                     <div className="mt-1 relative rounded-md shadow-sm">
-                                        <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none px-4 border border-r-2">
-                                            <span className="text-gray-500 sm:text-sm">+234</span>
-                                        </div>
+                                        
                                         <input
                                             type="tel"
                                             name="phoneNumber"
                                             id="phoneNumber"
                                             className="block w-full z-1 pl-20 border rounded-md py-2 pr-10 text-black"
                                             placeholder=""
-                                            prefix="+234"
                                             value={formData.phoneNumber}
                                             onChange={handleInputChange}
                                             required
@@ -374,14 +374,14 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
 
                     {step === 4 && (
                         <div className="flex flex-col md:flex-row gap-6">
-                            <BookingImage src='' />
+                            <BookingImage src={Recent4.src} />
                             <div className="w-full md:w-full flex flex-col gap-6 p-8 md:px-12">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
                                         <h2 className="text-2xl font-normal">Book A Session</h2>
                                         <CloseButton onClick={() => setIsModalOpen(false)} />
                                     </div>
-                                    <p className="text-black/50 text-sm">Confirm that the information entered are correct, and the price for the session selected.</p>
+                                    <p className="text-black/50 text-sm mt-3">Confirm that the information entered are correct, and the price for the session selected.</p>
                                 </div>
 
                                 <div className="space-y-4">
@@ -397,7 +397,7 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                                         <div className="flex gap-2">
                                             <span>{formatDate(formData.scheduleDate)}</span>
                                             <span className="text-black/50">/</span>
-                                            <span>5:09 AM</span>
+                                            <span>{formatTime(formData.scheduleTime)}</span>
                                         </div>
                                     </div>
 
@@ -420,10 +420,10 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                                     {/* Location and Price */}
                                     <div className="border-b border-black/20 pb-2">
                                         <div className="text-black/50">Location</div>
-                                        <div>{formData.serviceType == "studio" ? "133 Ahmadu Bello Wy, VI, Lagos" : ``}</div>
+                                        <div>{formData.serviceType == "studio" ? "133 Ahmadu Bello Wy, VI, Lagos" : formData.scheduleLocation == "mainland" ? "Mainland (Yaba, Ikeja, Surulere)" : formData.scheduleLocation == "island-1" ? "Island (Victoria island, Ikoyi, Banana island)" : formData.scheduleLocation == "island-2" ? "Island (Lekki, Ikate, Chevron)" : "Island (Ajah, Lekki garden)"}</div>
                                         <div className="flex gap-2 mt-2">
                                             <span className="text-black/50">Price</span>
-                                            <span className="text-black/50">{formData.serviceType == "studio" ? "":""}</span>
+                                            <span className="text-black">{formData.serviceType == "studio" ? "₦ 25,000" : formData.scheduleLocation == "mainland" ? "₦ 50,000" : formData.scheduleLocation == "island-1" ? "40,000" : formData.scheduleLocation == "island-2" ? "35,000" : "40,000" }</span>
                                         </div>
                                     </div>
 
@@ -449,7 +449,6 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                             </div>
                         </div>
                     )}
-
                 </form>
             </div>
         </div>
@@ -610,7 +609,7 @@ const NavHeader = () => {
 export default NavHeader;
 
 const BookingImage = ({ src }: { src: string }) => (
-    <div className="w-full md:w-1/2">
+    <div className="w-full">
         <img
             className="w-full h-40 md:h-[100%] object-cover rounded-lg"
             src={src}

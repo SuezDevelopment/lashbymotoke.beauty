@@ -202,7 +202,7 @@ const GetInTouchSection = () => {
                 </label>
                 <div className="mt-1 rounded-md shadow-sm">
                   <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none pl-4">
-                    <span className="text-gray-500 sm:text-sm">+234</span>
+                    <span className="text-gray-500 sm:text-sm"></span>
                   </div>
                   <input
                     type="tel"
@@ -210,7 +210,7 @@ const GetInTouchSection = () => {
                     id="phone"
                     className="block w-full z-1 pl-14 border rounded-md py-2 pr-10 text-black"
                     placeholder=""
-                    prefix="+234"
+                    prefix=""
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
