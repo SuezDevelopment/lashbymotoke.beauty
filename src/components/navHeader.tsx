@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import RedMid from '@/assets/images/red.jpeg'
 import Recent3 from '@/assets/images/recent3.png'
+import { formatDate } from '@/lib/tools';
 interface SessionBookingFormData {
     serviceType: string;
     scheduleDate: string;
@@ -46,18 +47,28 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                 setStep(2);
             } else if (serviceType === 'studio') {
                 setStep(3);
+            } else {
+                setStep(prev => Math.min(prev + 1))
             }
         }
-        if (formData.serviceType && step === 2) {
+        if (step === 2) {
             const { scheduleLocation, specialRequest } = formData
             if (!scheduleLocation || !specialRequest) {
                 setError('Please fill in all fields')
                 return
             }
+            setStep(3);
         }
 
-        if (step === 3) { }
-        setStep(prev => Math.min(prev + 1))
+        if (step === 3) {
+            const { fullName, phoneNumber, emailAddress, homeAddress } = formData
+            if (!fullName || !phoneNumber || !emailAddress || !homeAddress) {
+                setError('Please fill in all fields')
+                return
+            }
+            setStep(4);
+        }
+    
         console.log(`Step: ${step} :::: ${JSON.stringify(formData)}`)
     }
     const handleInputChange = (e: any) => {
@@ -377,14 +388,14 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                                     {/* Service Details */}
                                     <div className="border-b border-black/20 pb-2">
                                         <div className="text-black/50">Service</div>
-                                        <div className="text-black">Home service</div>
+                                        <div className="text-black">{formData.serviceType == "studio" ? "Studio makeup session" : "Home service session"}</div>
                                     </div>
 
                                     {/* Date and Time */}
                                     <div className="border-b border-black/20 pb-2">
                                         <div className="text-black/50">Date and Time</div>
                                         <div className="flex gap-2">
-                                            <span>January 15, 2025</span>
+                                            <span>{formatDate(formData.scheduleDate)}</span>
                                             <span className="text-black/50">/</span>
                                             <span>5:09 AM</span>
                                         </div>
@@ -393,36 +404,37 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                                     {/* Personal Details */}
                                     <div className="border-b border-black/20 pb-2">
                                         <div className="text-black/50">Full name</div>
-                                        <div>Toluwani Adegbite</div>
+                                        <div>{formData.fullName}</div>
                                     </div>
 
                                     <div className="border-b border-black/20 pb-2">
                                         <div className="text-black/50">Email address</div>
-                                        <div>Redest@fmail.com</div>
+                                        <div>{formData.emailAddress}</div>
                                     </div>
 
                                     <div className="border-b border-black/20 pb-2">
                                         <div className="text-black/50">Phone</div>
-                                        <div>+234 - 0000 - 000 - 0000</div>
+                                        <div>{formData.phoneNumber}</div>
                                     </div>
 
                                     {/* Location and Price */}
                                     <div className="border-b border-black/20 pb-2">
                                         <div className="text-black/50">Location</div>
-                                        <div>Mainland (Ikeja, Surulere, Yaba)</div>
+                                        <div>{formData.serviceType == "studio" ? "133 Ahmadu Bello Wy, VI, Lagos" : ``}</div>
                                         <div className="flex gap-2 mt-2">
                                             <span className="text-black/50">Price</span>
-                                            <span className="text-black/50">50,000</span>
+                                            <span className="text-black/50">{formData.serviceType == "studio" ? "":""}</span>
                                         </div>
                                     </div>
 
-                                    {/* Special Request */}
-                                    <div className="space-y-2">
+                                    {formData.serviceType == "home" && (
+                                        <div className="space-y-2">
                                         <div className="text-black/30">Special request</div>
                                         <div className="p-2 rounded-lg border border-black/30">
-                                            <p className="text-black">Lorem ipsum dolor sit amet consectetur. Semper pellentesque eget lobortis pellentesque.</p>
+                                            <p className="text-black">{formData.specialRequest}</p>
                                         </div>
                                     </div>
+                                    )}
                                 </div>
 
                                 {/* Action Buttons */}
@@ -430,7 +442,7 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                                     <button className="w-full py-3 bg-[#a68ea5] text-white rounded-lg hover:bg-[#957994] transition-colors">
                                         Book now
                                     </button>
-                                    <button className="w-full py-3 border border-black/25 text-black rounded-lg transition-colors">
+                                    <button onClick={()=> setStep(1)} className="w-full py-3 border border-black/25 text-black rounded-lg transition-colors">
                                         Edit
                                     </button>
                                 </div>

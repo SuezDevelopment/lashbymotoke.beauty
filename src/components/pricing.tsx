@@ -27,7 +27,7 @@ const PricingSection = () => {
             title: "Studio makeup session",
             price_per_session: "₦ 25,000 Per session",
             description: "Have your makeup professionally done in our makeup store any week days and weekend from 9AM - 6PM",
-            location: "Location: 134 Ahmadu bello way, victoria island, Lagos",
+            location: "134 Ahmadu bello way, victoria island, Lagos",
             open_days: "Monday - Saturday",
             duration: "1hr",
         }
@@ -48,7 +48,7 @@ const PricingSection = () => {
             title: "Home service makeup session (Island)",
             price_per_session: "₦ 40,000 Per session",
             description: "Book a home service makeup session with us. Prices varies from location to location.",
-            location: "Location: Victoria island, Ikoyi, Banana island.",
+            location: "Victoria island, Ikoyi, Banana island.",
             open_days: "Monday - Sunday",
             duration: "1hr 30mins",
         },
@@ -58,7 +58,7 @@ const PricingSection = () => {
             title: "Home service makeup session (Island)",
             price_per_session: "₦ 35,000 Per session",
             description: "Book a home service makeup session with us. Prices varies from location to location.",
-            location: "Location: Lekki, Ikate, Chevron.",
+            location: "Lekki, Ikate, Chevron.",
             open_days: "Monday - Sunday",
             duration: "1hr 30mins",
         },
@@ -67,7 +67,7 @@ const PricingSection = () => {
             title: "Home service makeup session (Island)",
             price_per_session: "₦ 40,000 Per session",
             description: "Book a home service makeup session with us. Prices varies from location to location.",
-            location: "Location: Ajah, Lekki garden.",
+            location: "Ajah, Lekki garden.",
             open_days: "Monday - Sunday",
             duration: "1hr 30mins",
         }
@@ -109,14 +109,22 @@ const PricingSection = () => {
                                                 <div className='w-1/2 h-full'>
                                                     <img src={service.image} alt={service.title} className="w-full h-full object-cover rounded-3xl" />
                                                 </div>
-                                                <div className="w-1/2 flex flex-col justify-between md:py-8 overflow-hidden">
-                                                    <h3 className="md:text-xl font-bold">{service.title}</h3>
-                                                    <p className="font-bold">{service.price_per_session}</p>
-                                                    <p className="text-sm md:text-muted-foreground  md:text-xl break-words">{service.description}</p>
-                                                    <p className="text-sm md:text-muted-foreground  md:text-xl break-words">{service.location}</p>
-                                                    <p className="text-sm md:text-muted-foreground  md:text-xl break-words">{service.open_days}</p>
-                                                    <p className="text-sm md:text-muted-foreground  md:text-xl break-words"> <span className='font-bold'>Duration:</span> {service.duration}</p>
-                                                    <button className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 mt-2 p-2 rounded transition-colors">Book Now</button>
+                                                <div className="w-1/2 flex flex-col justify-between md:py-8 overflow-y-auto relative h-full">
+                                                    <div className="flex-1 space-y-2">
+                                                        <h3 className="md:text-xl font-bold">{service.title}</h3>
+                                                        <p className="font-bold md:text-xl">{service.price_per_session}</p>
+                                                        <p className="text-sm md:text-muted-foreground md:text-xl break-words">{service.description}</p>
+                                                        <p className="text-sm md:text-muted-foreground md:text-xl break-words"><span className='font-bold'>Location:</span> {service.location}</p>
+                                                        <p className="text-sm md:text-muted-foreground md:text-xl break-words">{service.open_days}</p>
+                                                        <p className="text-sm md:text-muted-foreground md:text-xl break-words">
+                                                            <span className='font-bold'>Duration:</span> {service.duration}
+                                                        </p>
+                                                    </div>
+                                                    <div className="sticky bottom-0 left-0 right-0 bg-black pt-2">
+                                                        <button className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 p-2 rounded transition-colors w-full">
+                                                            Book Now
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         );
@@ -149,15 +157,24 @@ const PricingSection = () => {
                                                 <div className='w-1/2 h-full'>
                                                     <img src={service.image} alt={service.title} className="w-full h-full object-cover rounded-3xl" />
                                                 </div>
-                                                <div className="w-1/2 flex flex-col justify-between md:py-8 overflow-hidden">
-                                                    <h3 className="md:text-xl font-bold">{service.title}</h3>
-                                                    <p className="text-sm md:text-xl">{service.price_per_session}</p>
-                                                    <p className="text-sm md:text-muted-foreground  md:text-xl break-words md:text-xl">{service.description}</p>
-                                                    <p className="text-sm md:text-muted-foreground  md:text-xl break-words md:text-xl">{service.location}</p>
-                                                    <p className="text-sm md:text-muted-foreground  md:text-xl break-words md:text-xl">{service.open_days}</p>
-                                                    <p className="text-sm md:text-muted-foreground  md:text-xl break-words md:text-xl">Duration: {service.duration}</p>
-                                                    <button className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 mt-2 p-2 rounded transition-colors">Book Now</button>
+                                                <div className="w-1/2 flex flex-col justify-between md:py-8 overflow-y-auto relative h-full">
+                                                    <div className="flex-1 space-y-2">
+                                                        <h3 className="md:text-xl font-bold">{service.title}</h3>
+                                                        <p className="font-bold md:text-xl">{service.price_per_session}</p>
+                                                        <p className="text-sm md:text-muted-foreground md:text-xl break-words">{service.description}</p>
+                                                        <p className="text-sm md:text-muted-foreground md:text-xl break-words"><span className='font-bold'>Location:</span> {service.location}</p>
+                                                        <p className="text-sm md:text-muted-foreground md:text-xl break-words">{service.open_days}</p>
+                                                        <p className="text-sm md:text-muted-foreground md:text-xl break-words">
+                                                            <span className='font-bold'>Duration:</span> {service.duration}
+                                                        </p>
+                                                    </div>
+                                                    <div className="sticky bottom-0 left-0 right-0 bg-black pt-2">
+                                                        <button className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 p-2 rounded transition-colors w-full">
+                                                            Book Now
+                                                        </button>
+                                                    </div>
                                                 </div>
+
                                             </div>
                                         );
                                     })}
