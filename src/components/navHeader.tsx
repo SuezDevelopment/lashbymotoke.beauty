@@ -142,7 +142,7 @@ const NavHeader = () => {
                             </li>
                             <li>
                                 <button onClick={() => {
-                                    setIsModalOpen(true); console.log("setIsModalOpen(true)");
+                                    setIsModalOpen(true); setIsMenuOpen(false);
                                 }} className="h-10 px-4 rounded-2xl border border-black/25 text-black text-base font-normal leading-relaxed tracking-tight w-full">
                                     Book a session
                                 </button>
@@ -176,6 +176,14 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
     }
 
     const handleNext = () => {
+        if (step === 1) {
+            const { serviceType, scheduleDate, scheduleTime } = formData
+            if (!serviceType || !scheduleDate || !scheduleTime) {
+                alert('Please fill in all fields')
+                return
+            }
+        }
+        if (step === 2) {}
         setStep(prev => Math.min(prev + 1, 3))
     }
 
@@ -242,6 +250,7 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                                         <input
                                             type="date"
                                             className="flex-1 p-3 font-semibold rounded-lg border border-black/25"
+                                            min={new Date().toISOString().split('T')[0]}
                                             required
                                         />
                                     </div>
@@ -263,7 +272,7 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                         </div>
                     )}
 
-                    {step === 2 && (
+                    {step === 2 && formData.serviceType === 'home' && (
                         <div className="flex flex-col md:flex-row gap-6">
                             <BookingImage src={Recent3.src} />
                             <div className="w-full md:w-full flex flex-col gap-6 md:p-8 md:px-8">
@@ -364,7 +373,6 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                                                 />
                                             </svg>
                                         </button>
-
                                     </div>
                                     <p className="text-black/50 text-sm">Fill in the following to book a makeup appointment</p>
                                 </div>
