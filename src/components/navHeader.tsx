@@ -393,9 +393,9 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
                     )}
 
                     {step === 4 && (
-                        <div className="flex flex-col md:flex-row gap-6">
+                        <div className="flex flex-col md:flex-row gap-6 max-h-[80vh]">
                             <BookingImage src={Recent4.src} />
-                            <div className="w-full md:w-full flex flex-col gap-6 p-8 md:px-12">
+                            <div className="w-full md:w-full flex flex-col gap-6 p-8 md:px-12 overflow-y-auto">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
                                         <h2 className="text-2xl font-normal">Book A Session</h2>
