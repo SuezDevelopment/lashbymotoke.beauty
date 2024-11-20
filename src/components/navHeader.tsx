@@ -4,7 +4,7 @@ import Recent3 from '@/assets/images/recent3.png'
 import Recent4 from '@/assets/images/recent4.png'
 import Recent5 from '@/assets/images/recent5.png'
 import { formatDate, formatTime } from '@/lib/tools';
-interface SessionBookingFormData {
+export interface SessionBookingFormData {
     serviceType: string;
     scheduleDate: string;
     scheduleTime: string;
@@ -18,7 +18,7 @@ interface SessionBookingFormData {
 
 
 
-export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
+export const SessionBookingModal = ({ setIsModalOpen }: any) => {
 
     const [step, setStep] = useState(1)
     const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined)
@@ -102,8 +102,23 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
         }, 5000)
     }
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = async(e: any) => {
         e.preventDefault()
+
+        await fetch('/api/sessionBooking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     return (
@@ -118,7 +133,7 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                     {step === 1 && (
                         <div className="flex flex-col md:flex-row gap-6">
                             <BookingImage src={Recent3.src} />
-                            <div className="w-full md:w-full flex flex-col gap-6 md:p-8 md:px-8">
+                            <div className="w-full md:w-full flex flex-col gap-6 p-8 md:px-8">
                                 <div className="border-b border-black/30 pb-4">
                                     {errorMsg && (
                                         <div className="m-4 text-[#ff0000] text-sm font-semibold capitalize">
@@ -185,7 +200,7 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                     {step === 2 && (
                         <div className="flex flex-col md:flex-row gap-6">
                             <BookingImage src={RedMid.src} />
-                            <div className="w-full md:w-full flex flex-col gap-6 md:p-8 md:px-8">
+                            <div className="w-full md:w-full flex flex-col gap-6 p-8 md:px-8">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
                                         <h2 className="text-2xl font-normal">Book A Session</h2>
@@ -258,7 +273,7 @@ export const SessionBookingModal = ({ setIsModalOpen, isModalOpen }: any) => {
                     {step === 3 && (
                         <div className="flex flex-col md:flex-row gap-6">
                             <BookingImage src={Recent3.src} />
-                            <div className="w-full md:w-full flex flex-col gap-6 md:p-8 md:px-8">
+                            <div className="w-full md:w-full flex flex-col gap-6 p-8 md:px-8">
                                 <div className="border-b border-black/30 pb-4">
                                     <div className="flex justify-between">
                                         <h2 className="text-2xl font-normal">Book A Session</h2>

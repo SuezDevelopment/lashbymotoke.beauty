@@ -85,23 +85,25 @@ const PricingSection = () => {
                     PRICING
                 </div>
                 <div className="flex flex-col justify-center items-start gap-6 w-[100%]">
-                    <div className="p-4 rounded-2xl border border-white justify-between items-center inline-flex w-full relative" onClick={() => openStudioDropDown(!studioDropDown)}>
-                        <div className="flex justify-start items-center gap-6">
-                            <div className="text-base  md:text-xl font-normal leading-relaxed tracking-tight">
-                                1.
+                    <div className="flex flex-col w-full">
+                        <div className="p-4 rounded-2xl border border-white justify-between items-center inline-flex w-full relative" onClick={() => openStudioDropDown(!studioDropDown)}>
+                            <div className="flex justify-start items-center gap-6">
+                                <div className="text-base  md:text-xl font-normal leading-relaxed tracking-tight">
+                                    1.
+                                </div>
+                                <div className="text-base md:text-xl font-normal leading-relaxed tracking-tight">
+                                    Studio makeup session
+                                </div>
                             </div>
-                            <div className="text-base md:text-xl font-normal leading-relaxed tracking-tight">
-                                Studio makeup session
+                            <div className="cursor-pointer">
+                                <IoChevronDownOutline
+                                    className={`transform transition-transform ${studioDropDown ? 'rotate-180' : ''}`}
+                                    size={24}
+                                />
                             </div>
-                        </div>
-                        <div className="cursor-pointer">
-                            <IoChevronDownOutline
-                                className={`transform transition-transform ${studioDropDown ? 'rotate-180' : ''}`}
-                                size={24}
-                            />
                         </div>
                         {studioDropDown && (
-                            <div className="absolute top-full z-30 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4">
+                            <div className="relative top-full z-30 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4 h-fit">
                                 <div className="flex z-30 flex-col w-full gap-4">
                                     {studioServices.map((service, index) => {
                                         return (
@@ -133,23 +135,25 @@ const PricingSection = () => {
                             </div>
                         )}
                     </div>
-                    <div className="p-4 rounded-2xl border border-white justify-between items-center inline-flex w-full relative" onClick={() => openHomeDropDown(!homeDropDown)}>
-                        <div className="flex justify-between items-center gap-6">
-                            <div className="text-base md:text-xl font-normal leading-relaxed tracking-tight">
-                                2.
+                    <div className="flex flex-col w-full">
+                        <div className="p-4 rounded-2xl border border-white justify-between items-center inline-flex w-full" onClick={() => openHomeDropDown(!homeDropDown)}>
+                            <div className="flex justify-between items-center gap-6">
+                                <div className="text-base md:text-xl font-normal leading-relaxed tracking-tight">
+                                    2.
+                                </div>
+                                <div className="text-base md:text-xl font-normal leading-relaxed tracking-tight">
+                                    Home service makeup session
+                                </div>
                             </div>
-                            <div className="text-base md:text-xl font-normal leading-relaxed tracking-tight">
-                                Home service makeup session
+                            <div className="cursor-pointer">
+                                <IoChevronDownOutline
+                                    className={`transform transition-transform ${homeDropDown ? 'rotate-180' : ''}`}
+                                    size={24}
+                                />
                             </div>
-                        </div>
-                        <div className="cursor-pointer">
-                            <IoChevronDownOutline
-                                className={`transform transition-transform ${homeDropDown ? 'rotate-180' : ''}`}
-                                size={24}
-                            />
                         </div>
                         {homeDropDown && (
-                            <div className="absolute top-full left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4">
+                            <div className="relative top-full z-30 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4 h-fit">
                                 <div className="flex z-20 flex-col w-full gap-4">
                                     {homeServices.map((service, index) => {
                                         return (
