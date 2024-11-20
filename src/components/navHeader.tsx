@@ -515,7 +515,7 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
                        
 
                                     <div className="text-center space-y-4">
-                                        <h3 className="text-2xl font-semibold text-[#a68ea5]">
+                                        <h3 className={`text-2xl font-bold ${isSubmitSucess ? "text-[#a68ea5]" : "text-red-500"}`}>
                                             {isSubmitSucess ? `Booking Successful!` : `Booking Failed!`}
                                         </h3>
                                         <p className="text-base text-black/70 max-w-md">
