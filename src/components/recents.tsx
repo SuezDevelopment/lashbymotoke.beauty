@@ -22,14 +22,14 @@ const RecentWorksSection = () => {
     ];
 
     const [isMobile, setIsMobile] = useState(true);
-    
+
     useEffect(() => {
         setIsMobile(window.innerWidth >= 768);
-        
+
         const handleResize = () => {
             setIsMobile(window.innerWidth >= 768);
         };
-        
+
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -38,13 +38,13 @@ const RecentWorksSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = () => {
-        setCurrentIndex((prevIndex) => 
+        setCurrentIndex((prevIndex) =>
             prevIndex + 2 >= imageUrls.length ? 0 : prevIndex + 2
         );
     };
 
     const prevSlide = () => {
-        setCurrentIndex((prevIndex) => 
+        setCurrentIndex((prevIndex) =>
             prevIndex - 2 < 0 ? imageUrls.length - 1 : prevIndex - 2
         );
     };
@@ -65,43 +65,47 @@ const RecentWorksSection = () => {
             </div>
             <div className="relative w-full max-w-7xl px-4">
                 <div className="flex justify-center items-center gap-6">
-                    <button 
+                    <button
                         onClick={prevSlide}
                         className="absolute left-0 z-10 bg-black/30 hover:bg-black/50 text-white p-6 rounded-full"
                     >
                         <IoChevronBackOutline size={28} />
                     </button>
-                    
+
                     <div className="flex gap-6 justify-center">
                         <motion.div
                             key={`image-${currentIndex}`}
                             className="w-full "
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ type: "spring", stiffness: 100, damping: 10 }}
+                            initial={{ x: 300, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            exit={{ x: -300, opacity: 0 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         >
-                            <img 
-                                src={imageUrls[currentIndex]} 
-                                alt={`Eunice Makeover ${currentIndex}`} 
+                            <img
+                                src={imageUrls[currentIndex]}
+                                alt={`Eunice Makeover ${currentIndex}`}
                                 className="h-80 md:h-full rounded-3xl shadow-lg"
                             />
                         </motion.div>
-                        
+
                         {isMobile && (
                             <motion.div
                                 key={`image-${(currentIndex + 1) % imageUrls.length}`}
                                 className="hidden md:block w-full max-w-[80%]"
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ type: "spring", stiffness: 100, damping: 10 }}
+                                initial={{ x: 300, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                exit={{ x: -300, opacity: 0 }}
+                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
                             >
-                                <img 
-                                    src={imageUrls[(currentIndex + 1) % imageUrls.length]} 
-                                    alt={`Eunice Makeover ${(currentIndex + 1) % imageUrls.length}`} 
+                                <img
+                                    src={imageUrls[(currentIndex + 1) % imageUrls.length]}
+                                    alt={`Eunice Makeover ${(currentIndex + 1) % imageUrls.length}`}
                                     className="h-80 md:h-full rounded-3xl shadow-lg"
                                 />
                             </motion.div>
                         )}
                     </div>
-                    <button 
+                    <button
                         onClick={nextSlide}
                         className="absolute right-0 z-10 bg-black/30 hover:bg-black/50 text-white p-6 rounded-full"
                     >
