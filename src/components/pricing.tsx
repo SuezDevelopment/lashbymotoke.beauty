@@ -6,6 +6,7 @@ import MainlandSess from '@/assets/images/mainland_session.png'
 import Island1Sess from '@/assets/images/island_session1.png'
 import Island2Sess from '@/assets/images/island_session2.png'
 import Island3Sess from '@/assets/images/island_session3.png'
+import { SessionBookingFormData, SessionBookingModal } from './navHeader';
 
 type ServiceSession = {
     image: string;
@@ -20,6 +21,18 @@ type ServiceSession = {
 const PricingSection = () => {
     const [studioDropDown, openStudioDropDown] = useState(false)
     const [homeDropDown, openHomeDropDown] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [formData, setFormData] = useState<SessionBookingFormData>({
+        serviceType: '',
+        scheduleDate: '',
+        scheduleTime: '',
+        scheduleLocation: '',
+        specialRequest: '',
+        fullName: '',
+        phoneNumber: '',
+        emailAddress: '',
+        homeAddress: '',
+    })
 
     const studioServices: ServiceSession[] = [
         {
@@ -73,8 +86,39 @@ const PricingSection = () => {
         }
     ];
 
+    const handleSessionBooking = (formDataItems: { name: string; value: string; }[]) => {
+        try {
+            formDataItems.forEach(item => {
+                setFormData(prev => ({
+                    ...prev,
+                    [item.name]: item.value
+                }));
+            });
+            setIsModalOpen(true);
+        } catch (error) {
+            console.error("Error updating form data:", error);
+        }
+    };
+
+    const clearFormData = () => {
+        setFormData({
+            serviceType: '',
+            scheduleDate: '',
+            scheduleTime: '',
+            scheduleLocation: '',
+            specialRequest: '',
+            fullName: '',
+            phoneNumber: '',
+            emailAddress: '',
+            homeAddress: '',
+        });
+    };
+
+
+
     return (
         <section id='pricing' className="px-4 bg-black sm:px-8 lg:px-20 py-16 w-full">
+            {isModalOpen && <SessionBookingModal setIsModalOpen={setIsModalOpen} sessionBookingState={formData} onClose={() => clearFormData()} />}
             <motion.div
                 className="flex flex-col justify-start items-start gap-24 inline-flex w-[100%]"
                 initial={{ opacity: 0, y: 20 }}
@@ -122,7 +166,7 @@ const PricingSection = () => {
                                                             <span className='font-bold'>Duration:</span> {service.duration}
                                                         </p>
                                                     </div>
-                                                    <div className="sticky bottom-0 left-0 right-0 bg-black pt-2">
+                                                    <div onClick={() => handleSessionBooking([{ name: 'serviceType', value: "studio" }])} className="sticky bottom-0 left-0 right-0 bg-black pt-2">
                                                         <button className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 p-2 rounded transition-colors w-full">
                                                             Book Now
                                                         </button>
@@ -173,7 +217,7 @@ const PricingSection = () => {
                                                         </p>
                                                     </div>
                                                     <div className="sticky bottom-0 left-0 right-0 bg-black pt-2">
-                                                        <button className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 p-2 rounded transition-colors w-full">
+                                                        <button onClick={() => handleSessionBooking([{ name: 'serviceType', value: "home" }, { name: 'scheduleLocation', value: `${index == 0 ? 'mainland' : `island-${index}`}` }])} className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 p-2 rounded transition-colors w-full">
                                                             Book Now
                                                         </button>
                                                     </div>

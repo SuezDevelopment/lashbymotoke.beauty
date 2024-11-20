@@ -39,13 +39,13 @@ const RecentWorksSection = () => {
 
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => 
-            prevIndex + 1 >= imageUrls.length ? 0 : prevIndex + 1
+            prevIndex + 2 >= imageUrls.length ? 0 : prevIndex + 2
         );
     };
 
     const prevSlide = () => {
         setCurrentIndex((prevIndex) => 
-            prevIndex - 1 < 0 ? imageUrls.length - 1 : prevIndex - 1
+            prevIndex - 2 < 0 ? imageUrls.length - 1 : prevIndex - 2
         );
     };
 
@@ -76,14 +76,13 @@ const RecentWorksSection = () => {
                         <motion.div
                             key={`image-${currentIndex}`}
                             className="w-full "
-                            initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5 }}
+                            transition={{ type: "spring", stiffness: 100, damping: 10 }}
                         >
                             <img 
                                 src={imageUrls[currentIndex]} 
                                 alt={`Eunice Makeover ${currentIndex}`} 
-                                className="h-80 md:h-full rounded-tl-3xl rounded-br-3xl shadow-lg"
+                                className="h-80 md:h-full rounded-3xl shadow-lg"
                             />
                         </motion.div>
                         
@@ -91,14 +90,13 @@ const RecentWorksSection = () => {
                             <motion.div
                                 key={`image-${(currentIndex + 1) % imageUrls.length}`}
                                 className="hidden md:block w-full max-w-[80%]"
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ type: "spring", stiffness: 100, damping: 10 }}
                             >
                                 <img 
                                     src={imageUrls[(currentIndex + 1) % imageUrls.length]} 
                                     alt={`Eunice Makeover ${(currentIndex + 1) % imageUrls.length}`} 
-                                    className="h-80 md:h-full rounded-tl-3xl rounded-br-3xl shadow-lg"
+                                    className="h-80 md:h-full rounded-3xl shadow-lg"
                                 />
                             </motion.div>
                         )}

@@ -18,11 +18,11 @@ export interface SessionBookingFormData {
 
 
 
-export const SessionBookingModal = ({ setIsModalOpen }: any) => {
+export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClose }: { setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>, sessionBookingState?: SessionBookingFormData, onClose?: () => void}) => {
 
     const [step, setStep] = useState(1)
     const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined)
-    const [formData, setFormData] = useState<SessionBookingFormData>({
+    const [formData, setFormData] = useState<SessionBookingFormData>(sessionBookingState || {
         serviceType: '',
         scheduleDate: '',
         scheduleTime: '',
@@ -121,11 +121,16 @@ export const SessionBookingModal = ({ setIsModalOpen }: any) => {
         })
     }
 
+    const handleClose = () => {
+        setIsModalOpen(false);
+        onClose && onClose(); // Call the passed onClose function if it exists
+      };
+
     return (
         <div className="fixed inset-0 z-40 flex items-center justify-center">
             <div
                 className="absolute inset-0 bg-black/30 backdrop-blur-sm"
-                onClick={() => setIsModalOpen(false)}
+                onClick={handleClose}
             />
             <div className="relative bg-white text-black rounded-2xl p-8 shadow-xl max-w-[90%] md:max-w-[50%] w-full m-4">
 
@@ -142,7 +147,7 @@ export const SessionBookingModal = ({ setIsModalOpen }: any) => {
                                     )}
                                     <div className="flex justify-between">
                                         <h2 className="text-2xl font-normal">Book A Session</h2>
-                                        <CloseButton onClick={() => setIsModalOpen(false)} />
+                                        <CloseButton onClick={handleClose} />
                                     </div>
                                     <p className="text-black/50 text-sm">Fill in the following to book a makeup appointment</p>
                                 </div>
@@ -497,7 +502,7 @@ const NavHeader = () => {
         <>
             <nav
                 className={`fixed top-0 left-0 w-full rounded-lg shadow-lg px-4 py-4 sm:px-8 lg:px-20 flex items-center justify-between z-20 ${isScrolled
-                    ? "bg-red shadow-lg border-b border-red-300"
+                    ? "bg-red shadow-lg border-b border-black"
                     : "bg-transparent shadow-lg border-b border-gray-300"
                     }`}
             >
@@ -615,7 +620,7 @@ const NavHeader = () => {
             </nav>
 
             {isModalOpen && (
-                <SessionBookingModal setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
+                <SessionBookingModal setIsModalOpen={setIsModalOpen} />
             )}
         </>
     );
