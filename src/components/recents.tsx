@@ -39,13 +39,13 @@ const RecentWorksSection = () => {
 
     const nextSlide = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex + 2 >= imageUrls.length ? 0 : prevIndex + 2
+            prevIndex + (!isMobile ? 1 : 2) >= imageUrls.length ? 0 : prevIndex + (!isMobile ? 1 : 2)
         );
     };
 
     const prevSlide = () => {
         setCurrentIndex((prevIndex) =>
-            prevIndex - 2 < 0 ? imageUrls.length - 1 : prevIndex - 2
+            prevIndex - (!isMobile ? 1 : 2) < 0 ? imageUrls.length - 1 : prevIndex - (!isMobile ? 1 : 2)
         );
     };
 
