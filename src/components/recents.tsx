@@ -34,7 +34,6 @@ const RecentWorksSection = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const containerRef = useRef<HTMLDivElement>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextSlide = () => {

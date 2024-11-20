@@ -4,6 +4,7 @@ import Recent3 from '@/assets/images/recent3.png'
 import Recent4 from '@/assets/images/recent4.png'
 import Recent5 from '@/assets/images/recent5.png'
 import { formatDate, formatTime } from '@/lib/tools';
+import { u } from 'framer-motion/client';
 export interface SessionBookingFormData {
     serviceType: string;
     scheduleDate: string;
@@ -18,10 +19,11 @@ export interface SessionBookingFormData {
 
 
 
-export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClose }: { setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>, sessionBookingState?: SessionBookingFormData, onClose?: () => void}) => {
+export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClose }: { setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>, sessionBookingState?: SessionBookingFormData, onClose?: () => void }) => {
 
     const [step, setStep] = useState(1)
     const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined)
+    const [isSubmitSucess, setIsSubmitSucess] = useState<boolean | undefined>(undefined)
     const [formData, setFormData] = useState<SessionBookingFormData>(sessionBookingState || {
         serviceType: '',
         scheduleDate: '',
@@ -70,7 +72,11 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
             }
             setStep(4);
         }
-    
+
+        if (step === 4) {
+            setStep(5);
+        }
+
         console.log(`Step: ${step} :::: ${JSON.stringify(formData)}`)
     }
     const handleInputChange = (e: any) => {
@@ -102,7 +108,7 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
         }, 5000)
     }
 
-    const handleSubmit = async(e: any) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault()
 
         await fetch('/api/sessionBooking', {
@@ -112,19 +118,22 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
             },
             body: JSON.stringify(formData)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
-        .catch(err => {
-            console.log(err)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(err => {
+                setIsSubmitSucess(false)
+                console.error(err)
+            }).finally(() => {
+                handleNext();
+            })
     }
 
     const handleClose = () => {
         setIsModalOpen(false);
         onClose && onClose(); // Call the passed onClose function if it exists
-      };
+    };
 
     return (
         <div className="fixed inset-0 z-40 flex items-center justify-center">
@@ -366,7 +375,7 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
                                         Phone number
                                     </label>
                                     <div className="mt-1 relative rounded-md shadow-sm">
-                                        
+
                                         <input
                                             type="tel"
                                             name="phoneNumber"
@@ -443,17 +452,17 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
                                         <div>{formData.serviceType == "studio" ? "133 Ahmadu Bello Wy, VI, Lagos" : formData.scheduleLocation == "mainland" ? "Mainland (Yaba, Ikeja, Surulere)" : formData.scheduleLocation == "island-1" ? "Island (Victoria island, Ikoyi, Banana island)" : formData.scheduleLocation == "island-2" ? "Island (Lekki, Ikate, Chevron)" : "Island (Ajah, Lekki garden)"}</div>
                                         <div className="flex gap-2 mt-2">
                                             <span className="text-black/50">Price</span>
-                                            <span className="text-black">{formData.serviceType == "studio" ? "₦ 25,000" : formData.scheduleLocation == "mainland" ? "₦ 50,000" : formData.scheduleLocation == "island-1" ? "40,000" : formData.scheduleLocation == "island-2" ? "35,000" : "40,000" }</span>
+                                            <span className="text-black">{formData.serviceType == "studio" ? "₦ 25,000" : formData.scheduleLocation == "mainland" ? "₦ 50,000" : formData.scheduleLocation == "island-1" ? "40,000" : formData.scheduleLocation == "island-2" ? "35,000" : "40,000"}</span>
                                         </div>
                                     </div>
 
                                     {formData.serviceType == "home" && (
                                         <div className="space-y-2">
-                                        <div className="text-black/30">Special request</div>
-                                        <div className="p-2 rounded-lg border border-black/30">
-                                            <p className="text-black">{formData.specialRequest}</p>
+                                            <div className="text-black/30">Special request</div>
+                                            <div className="p-2 rounded-lg border border-black/30">
+                                                <p className="text-black">{formData.specialRequest}</p>
+                                            </div>
                                         </div>
-                                    </div>
                                     )}
                                 </div>
 
@@ -462,13 +471,78 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
                                     <button type='submit' className="w-full py-3 bg-[#a68ea5] text-white rounded-lg hover:bg-[#957994] transition-colors">
                                         Book now
                                     </button>
-                                    <button onClick={()=> setStep(1)} className="w-full py-3 border border-black/25 text-black rounded-lg transition-colors">
+                                    <button onClick={() => setStep(1)} className="w-full py-3 border border-black/25 text-black rounded-lg transition-colors">
                                         Edit
                                     </button>
                                 </div>
                             </div>
                         </div>
                     )}
+
+                    {step === 5 && (
+                        <div className="flex flex-col md:flex-row gap-6">
+                            <div className="w-full md:w-full flex flex-col gap-6 p-8 md:px-8">
+                                <div className="border-b border-black/30 pb-4">
+                                    <div className="flex justify-between items-center">
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-3xl font-light">Eunice</span>
+                                            <span className="text-3xl font-bold">Makeover</span>
+                                        </div>
+                                        <CloseButton onClick={() => setIsModalOpen(false)} w='9' h='9' />
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col items-center justify-center gap-8 py-8">
+                                    {isSubmitSucess ? <div className="w-32 h-32 md:w-40 md:h-40 relative">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            className="w-full h-full text-[#a68ea5]"
+                                            fill="currentColor"
+                                        >
+                                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                                        </svg>
+                                    </div> :
+                                        <div className="w-32 h-32 md:w-40 md:h-40 relative">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                className="w-full h-full text-red-500"
+                                                fill="currentColor"
+                                            >
+                                                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+                                            </svg>
+                                        </div>}
+                                    {/*  */}
+                       
+
+                                    <div className="text-center space-y-4">
+                                        <h3 className="text-2xl font-semibold text-[#a68ea5]">
+                                            {isSubmitSucess ? `Booking Successful!` : `Booking Failed!`}
+                                        </h3>
+                                        <p className="text-base text-black/70 max-w-md">
+                                            {isSubmitSucess ? ` Your booking has been sent to us. You will receive a confirmation email shortly.` : ` We couldn't process your booking at this time. Please try again or contact support.`}
+                                        </p>
+                                    </div>
+                                    <div className="flex gap-4">
+                                        {!isSubmitSucess && (
+                                            <button
+                                                onClick={() => setStep(1)}
+                                                className="px-8 py-3 bg-[#a68ea5] text-white rounded-lg hover:bg-[#957994] transition-colors"
+                                            >
+                                                Try Again
+                                            </button>
+                                        )}
+                                        <button
+                                            onClick={() => setIsModalOpen(false)}
+                                            className="px-8 py-3 border border-[#a68ea5] text-black rounded-lg transition-colors"
+                                        >
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                 </form>
             </div>
         </div>
@@ -638,13 +712,13 @@ const BookingImage = ({ src }: { src: string }) => (
     </div>
 );
 
-const CloseButton = ({ onClick }: { onClick: () => void }) => (
+const CloseButton = ({ onClick, w = "5", h = "5" }: { onClick: () => void, w?: string, h?: string }) => (
     <button
         onClick={onClick}
         className=" hover:text-gray-700"
     >
         <svg
-            className="w-5 h-5"
+            className={`w-${w} h-${h}`}
             fill="none"
             stroke="#000000"
             viewBox="0 0 24 24"
