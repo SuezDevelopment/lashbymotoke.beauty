@@ -248,7 +248,7 @@ const GetInTouchSection = () => {
                   >
                     <PiSpinner className="animate-spin h-6 w-6 text-white" />
                   </motion.span>
-                ) : ("Send message")}
+                ) : ("Book now")}
               </button>
             </form>
           </div>

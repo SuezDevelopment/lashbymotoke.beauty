@@ -5,6 +5,8 @@ import Recent4 from '@/assets/images/recent4.png'
 import Recent5 from '@/assets/images/recent5.png'
 import { formatDate, formatTime } from '@/lib/tools';
 import { u } from 'framer-motion/client';
+import { PiSpinner } from 'react-icons/pi';
+import { motion } from 'framer-motion';
 export interface SessionBookingFormData {
     serviceType: string;
     scheduleDate: string;
@@ -478,7 +480,14 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
                                 {/* Action Buttons */}
                                 <div className="flex gap-4">
                                     <button type='submit' disabled={isLoading} className="w-full py-3 bg-[#a68ea5] text-white rounded-lg hover:bg-[#957994] transition-colors">
-                                        Book now
+                                    {isLoading ? (
+                  <motion.span
+                    animate={{ rotate: 360, transition: { duration: 1, repeat: Infinity } }}
+                    className="inline-block"
+                  >
+                    <PiSpinner className="animate-spin h-6 w-6 text-white" />
+                  </motion.span>
+                ) : ("Send message")}
                                     </button>
                                     <button onClick={() => setStep(1)} className="w-full py-3 border border-black/25 text-black rounded-lg transition-colors">
                                         Edit
