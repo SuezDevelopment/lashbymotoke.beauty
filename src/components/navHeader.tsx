@@ -24,6 +24,7 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
     const [step, setStep] = useState(1)
     const [errorMsg, setErrorMsg] = useState<string | undefined>(undefined)
     const [isSubmitSucess, setIsSubmitSucess] = useState<boolean | undefined>(undefined)
+    const [isLoading, setIsLoading] = useState(false)
     const [formData, setFormData] = useState<SessionBookingFormData>(sessionBookingState || {
         serviceType: '',
         scheduleDate: '',
@@ -37,7 +38,12 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
     })
 
     const handleBack = () => {
-        setStep(prev => Math.max(prev - 1, 1))
+        const { serviceType } = formData
+        if (step === 3 && serviceType === 'studio') {
+            setStep(1);
+        } else {
+            setStep(prev => Math.max(prev - 1, 1))
+        }
     }
 
     const handleNext = () => {
@@ -110,7 +116,7 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
-
+        setIsLoading(true)
         await fetch('/api/sessionBookings', {
             method: 'POST',
             headers: {
@@ -121,10 +127,13 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                setIsSubmitSucess(data.status)
+                setIsLoading(false)
             })
             .catch(err => {
                 setIsSubmitSucess(false)
                 console.error(err)
+                setIsLoading(false)
             }).finally(() => {
                 handleNext();
             })
@@ -468,7 +477,7 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
 
                                 {/* Action Buttons */}
                                 <div className="flex gap-4">
-                                    <button type='submit' className="w-full py-3 bg-[#a68ea5] text-white rounded-lg hover:bg-[#957994] transition-colors">
+                                    <button type='submit' disabled={isLoading} className="w-full py-3 bg-[#a68ea5] text-white rounded-lg hover:bg-[#957994] transition-colors">
                                         Book now
                                     </button>
                                     <button onClick={() => setStep(1)} className="w-full py-3 border border-black/25 text-black rounded-lg transition-colors">
@@ -512,7 +521,6 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
                                             </svg>
                                         </div>}
                                     {/*  */}
-                       
 
                                     <div className="text-center space-y-4">
                                         <h3 className={`text-2xl font-bold ${isSubmitSucess ? "text-[#a68ea5]" : "text-red-500"}`}>
