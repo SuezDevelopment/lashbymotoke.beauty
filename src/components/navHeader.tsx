@@ -111,7 +111,7 @@ export const SessionBookingModal = ({ setIsModalOpen, sessionBookingState, onClo
     const handleSubmit = async (e: any) => {
         e.preventDefault()
 
-        await fetch('/api/sessionBooking', {
+        await fetch('/api/sessionBookings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
