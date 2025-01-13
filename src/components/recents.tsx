@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
+
 import RedMid from '@/assets/images/red.jpeg'
 import Recent1 from '@/assets/images/recent1.png'
 import Recent3 from '@/assets/images/recent3.png'
@@ -10,7 +12,6 @@ import Recent5 from '@/assets/images/recent5.png'
 import Recent6 from '@/assets/images/recent6.png'
 
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
-import {Image} from 'antd'
 
 const RecentWorksSection = () => {
     const imageUrls = [
@@ -86,7 +87,9 @@ const RecentWorksSection = () => {
                                 alt={`Eunice Makeover ${currentIndex}`}
                                 className="h-80 md:h-full rounded-3xl shadow-lg object-cover"
                                 style={{ height: '600px' }}
-                                width="100%"
+                                width={600}
+                                height={600}
+                                priority
                             />
                         </motion.div>
 
@@ -99,7 +102,7 @@ const RecentWorksSection = () => {
                                 exit={{ x: -300, opacity: 0 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                             >
-                                <Image
+                                <img
                                     src={imageUrls[(currentIndex + 1) % imageUrls.length]}
                                     alt={`Eunice Makeover ${(currentIndex + 1) % imageUrls.length}`}
                                     className="h-80 md:h-full rounded-3xl shadow-lg"
