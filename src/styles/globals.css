@@ -28,7 +28,7 @@ nav {
 
 
 .my-image {
-  filter: sepia(0.8) hue-rotate(10deg);
+  filter: invert(.11) saturate(.72) hue-rotate(45deg);
 }
 
 .upside-down {

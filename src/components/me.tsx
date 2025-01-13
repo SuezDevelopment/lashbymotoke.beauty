@@ -4,39 +4,38 @@ const MeSection = () => {
     return (
         <section className="py-12 px-8 sm:px-8 lg:px-20">
             <motion.div
-                className="flex justify-center items-center gap-2 md:gap-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-            >
+        className="flex justify-center items-center gap-2 md:gap-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+    >
+        <motion.div
+            className='w-full max-w-80'
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+        >
+            <img src={RedMid.src} alt="Eunice Makeover 1" className="w-full h-80 md:h-96 rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform object-cover" />
+        </motion.div>
 
-                <motion.div
-                    className='w-full max-w-80'
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                >
-                    <img src={RedMid.src} alt="Eunice Makeover 1" className="h-80 md:h-full rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform object-cover" />
-                </motion.div>
+        <motion.div
+            className='w-full max-w-80'
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+        >
+            <img src={RedMid.src} alt="Eunice Makeover 2" className="w-full h-80 md:h-96 rounded-tl-3xl rounded-br-3xl shadow-lg upside-down transform transition-transform filter grayscale object-cover" />
+        </motion.div>
 
-                <motion.div
-                    className='w-full max-w-80'
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                >
-                    <img src={RedMid.src} alt="Eunice Makeover 2" className="w-full h-80 max-w-80 upside-down md:h-full rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform filter grayscale object-cover" />
-                </motion.div>
-
-                <motion.div
-                    className='w-full max-w-80'
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                >
-                    <img src={RedMid.src} alt="Eunice Makeover 3" className="invert h-80 md:h-full upside-down rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform filter my-image object-cover" />
-                </motion.div>
-            </motion.div>
+        <motion.div
+            className='w-full max-w-80'
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+        >
+            <img src={RedMid.src} alt="Eunice Makeover 3" className="w-full h-80 md:h-96 rounded-bl-3xl rounded-tr-3xl shadow-lg transform transition-transform filter my-image object-cover" />
+        </motion.div>
+    </motion.div>
             <motion.div
                 className='flex flex-col justify-center items-center text-black py-12 gap-8 font-[family-name:var(--font-geist-mali)]'
                 initial={{ opacity: 0, x: -20 }}

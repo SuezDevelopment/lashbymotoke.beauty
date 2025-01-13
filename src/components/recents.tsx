@@ -86,6 +86,7 @@ const RecentWorksSection = () => {
                                 alt={`Eunice Makeover ${currentIndex}`}
                                 className="h-80 md:h-full rounded-3xl shadow-lg object-cover"
                                 style={{ height: '600px' }}
+                                width="100%"
                             />
                         </motion.div>
 
@@ -103,6 +104,7 @@ const RecentWorksSection = () => {
                                     alt={`Eunice Makeover ${(currentIndex + 1) % imageUrls.length}`}
                                     className="h-80 md:h-full rounded-3xl shadow-lg"
                                     style={{ height: '600px' }}
+                                    width="100%"
                                 />
                             </motion.div>
                         )}

@@ -147,7 +147,7 @@ const PricingSection = () => {
                             </div>
                         </div>
                         {studioDropDown && (
-                            <div className="relative top-full z-30 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4 h-fit">
+                            <div className="relative top-full z-30 left-0 mt-2 w-full bg-black rounded-lg shadow-lg p-4 h-fit" >
                                 <div className="flex z-30 flex-col w-full gap-4">
                                     {studioServices.map((service, index) => {
                                         return (
