@@ -26,7 +26,7 @@ const CustomerReviewsSection = () => {
         }
     ];
     return (
-        <section className="md:px-20 p-8 bg-[#a68ea5]/10 rounded-lg flex flex-col md:flex-row justify-start items-center">
+        <section className="md:px-20 md:mx-[3rem] p-8 bg-[#a68ea5]/10 rounded-lg flex flex-col md:flex-row justify-start items-center">
             <div className="md:border-r border-black/25 justify-center items-center md:flex">
                 <div className="text-black text-base font-bold w-full leading-relaxed tracking-tight">
                     Customer Reviews

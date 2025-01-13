@@ -10,6 +10,7 @@ import Recent5 from '@/assets/images/recent5.png'
 import Recent6 from '@/assets/images/recent6.png'
 
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
+import {Image} from 'antd'
 
 const RecentWorksSection = () => {
     const imageUrls = [
@@ -50,13 +51,13 @@ const RecentWorksSection = () => {
 
     return (
         <section className="h-auto my-20 flex-col justify-start items-center gap-14 flex">
-            <div className="self-stretch md:px-20 mx-4 md:flex justify-between items-center ">
-                <div className="grow shrink basis-0 h-12 px-6 py-2.5 border-l-8 border-black justify-start items-center gap-2.5 flex">
+            <div className="self-stretch md:px-20 md:mx-[19rem] m md:flex justify-between items-center ">
+                <div className="grow shrink basis-0 h-12 px-6 py-2.5  mx-[2rem] border-l-8 border-black justify-start items-center gap-2.5 flex">
                     <div className="text-left text-black text-xl md:text-2xl font-bold leading-loose">
                         MY MOST RECENT MAKEUP
                     </div>
                 </div>
-                <div className="grow mt-12 md:mt-0 shrink basis-0 text-black text-base font-normal md:text-xl leading-relaxed tracking-tight">
+                <div className="grow mt-12 md:mt-0 shrink basis-0 mx-[2rem] text-black text-base font-normal md:text-xl leading-relaxed tracking-tight">
                     Check out my recent makeup lineups below for a glimpse into my latest
                     creations! From bold and glamorous to soft and natural, each look
                     showcases my passion for artistry and attention to detail.
@@ -80,26 +81,28 @@ const RecentWorksSection = () => {
                             exit={{ x: -300, opacity: 0 }}
                             transition={{ type: "spring", stiffness: 300, damping: 30 }}
                         >
-                            <img
+                            <Image
                                 src={imageUrls[currentIndex]}
                                 alt={`Eunice Makeover ${currentIndex}`}
-                                className="h-80 md:h-full rounded-3xl shadow-lg"
+                                className="h-80 md:h-full rounded-3xl shadow-lg object-cover"
+                                style={{ height: '600px' }}
                             />
                         </motion.div>
 
                         {isMobile && (
                             <motion.div
                                 key={`image-${(currentIndex + 1) % imageUrls.length}`}
-                                className="hidden md:block w-full max-w-[80%]"
+                                className="hidden md:block w-full"
                                 initial={{ x: 300, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 exit={{ x: -300, opacity: 0 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                             >
-                                <img
+                                <Image
                                     src={imageUrls[(currentIndex + 1) % imageUrls.length]}
                                     alt={`Eunice Makeover ${(currentIndex + 1) % imageUrls.length}`}
                                     className="h-80 md:h-full rounded-3xl shadow-lg"
+                                    style={{ height: '600px' }}
                                 />
                             </motion.div>
                         )}

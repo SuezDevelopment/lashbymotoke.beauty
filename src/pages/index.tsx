@@ -30,7 +30,7 @@ const geistMali = localFont({
 export default function Home() {
   return (
     <div
-      className={`${geistSans.variable} ${geistMono.variable} ${geistMali.variable} font-[family-name:var(--font-geist-mono)] md:px-12 px-2 mb-12`}
+      className={`${geistSans.variable} ${geistMono.variable} ${geistMali.variable} font-[family-name:var(--font-geist-sans)] px-2`}
     >
       <NavHeader />
       <HeroSection />
