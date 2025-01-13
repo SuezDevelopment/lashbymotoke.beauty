@@ -102,13 +102,6 @@ const RecentWorksSection = () => {
                                 exit={{ x: -300, opacity: 0 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                             >
-                                <img
-                                    src={imageUrls[(currentIndex + 1) % imageUrls.length]}
-                                    alt={`Eunice Makeover ${(currentIndex + 1) % imageUrls.length}`}
-                                    className="h-80 md:h-full rounded-3xl shadow-lg"
-                                    style={{ height: '600px' }}
-                                    width="100%"
-                                />
 
                                 <Image
                                     src={imageUrls[(currentIndex + 1) % imageUrls.length]}
