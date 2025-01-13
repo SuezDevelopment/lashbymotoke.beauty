@@ -109,6 +109,16 @@ const RecentWorksSection = () => {
                                     style={{ height: '600px' }}
                                     width="100%"
                                 />
+
+                                <Image
+                                    src={imageUrls[(currentIndex + 1) % imageUrls.length]}
+                                    alt={`Eunice Makeover ${(currentIndex + 1) % imageUrls.length}`}
+                                    className="h-80 md:h-full rounded-3xl shadow-lg object-cover"
+                                    style={{ height: '600px' }}
+                                    width={600}
+                                    height={600}
+                                    priority
+                                />
                             </motion.div>
                         )}
                     </div>
