@@ -795,7 +795,7 @@ const NavHeader = () => {
 export default NavHeader;
 
 const BookingImage = ({ src }: { src: string }) => (
-  <div className="w-full">
+    <div className="w-full hidden md:block">
     <img
       className="w-full h-40 md:h-[100%] object-cover rounded-lg"
       src={src}
