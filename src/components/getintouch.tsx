@@ -82,7 +82,7 @@ const GetInTouchSection = () => {
                 GET IN TOUCH
               </h2>
             </div>
-            <p className="text-black/50 text-base font-normal leading-relaxed tracking-tight">
+            <p className="text-black/50 text-lg font-normal leading-relaxed tracking-tight">
               Have a question or would you like to book an appointment? Drop me a
               message and I'll get back to you as soon as possible.
             </p>
@@ -90,7 +90,7 @@ const GetInTouchSection = () => {
             <div className="email socials flex flex-col gap-4">
               <div className="flex items-center gap-2">
                 <BsEnvelopePaper color='black' size={24} />
-                <a href="mailto:contact@eunicemakeover.com.ng" className="text-black text-base font-normal leading-relaxed tracking-tight hover:underline">
+                <a href="mailto:contact@eunicemakeover.com.ng" className="text-black text-lg font-normal leading-relaxed tracking-tight hover:underline">
                   contact@eunicemakeover.com.ng
                 </a>
               </div>
@@ -100,7 +100,7 @@ const GetInTouchSection = () => {
                   href="https://maps.google.com/?q=133+Ahmadu+Bello+Way+Victoria+Island+Lagos+106104"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black text-base font-normal leading-relaxed tracking-tight hover:underline"
+                  className="text-black text-lg font-normal leading-relaxed tracking-tight hover:underline"
                 >
                   133 Ahmadu Bello Wy, VI, Lagos
                 </a>
@@ -124,7 +124,7 @@ const GetInTouchSection = () => {
               <h3 className="text-2xl font-normal text-black leading-loose">
                 Let’s Talk
               </h3>
-              <p className="text-black/50 text-base font-normal leading-relaxed tracking-tight">
+              <p className="text-black/50 text-lg font-normal leading-relaxed tracking-tight">
                 Kindly fill up the input fields to send me a message! I’ll get
                 back to you as soon as possible.
               </p>

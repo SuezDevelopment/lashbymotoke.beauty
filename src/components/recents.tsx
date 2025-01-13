@@ -57,7 +57,7 @@ const RecentWorksSection = () => {
                         MY MOST RECENT MAKEUP
                     </div>
                 </div>
-                <div className="grow mt-12 md:mt-0 shrink basis-0 mx-[2rem] text-black text-base font-normal md:text-xl leading-relaxed tracking-tight">
+                <div className="grow mt-12 md:mt-0 shrink basis-0 mx-[2rem] text-black text-lg font-normal md:text-xl leading-relaxed tracking-tight">
                     Check out my recent makeup lineups below for a glimpse into my latest
                     creations! From bold and glamorous to soft and natural, each look
                     showcases my passion for artistry and attention to detail.

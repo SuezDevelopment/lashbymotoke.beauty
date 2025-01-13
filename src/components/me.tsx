@@ -42,7 +42,7 @@ const MeSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
             >
-                <span className='text-base md:text-xl font-light text-center max-w-[33rem]'>Makeup is my art, where creativity meets precision, all while delivering exceptional customer service.</span>
+                <span className='text-lg md:text-xl font-light text-center max-w-[33rem]'>Makeup is my art, where creativity meets precision, all while delivering exceptional customer service.</span>
                 <span className='font-semibold  md:text-2xl'>-Eunice</span>
             </motion.div>
         </section>

@@ -28,7 +28,7 @@ const ServicesSection = () => {
                         <h3 className="text-xl md:text-2xl font-bold text-black text-right">
                             Bridal Makeup
                         </h3>
-                        <p className="text-base font-normal md:text-xl text-black text-right">
+                        <p className="text-lg font-normal md:text-xl text-black text-right">
                             I do bridal makeup that ensures you look radiant and flawless on
                             your special day. Whether you want a classic, glamorous, or
                             natural look, I customize each application to match your style and
@@ -42,7 +42,7 @@ const ServicesSection = () => {
                         <h3 className="text-xl md:text-2xl font-bold text-black text-left lg:text-left">
                             Photoshoot Makeup
                         </h3>
-                        <p className="text-base font-normal md:text-xl text-black text-left lg:text-left">
+                        <p className="text-lg font-normal md:text-xl text-black text-left lg:text-left">
                             I do professional photoshoot makeup, ensuring you're camera-ready
                             with a flawless, long-lasting look. Whether it’s for fashion,
                             editorial, or commercial shoots, I tailor the makeup to complement

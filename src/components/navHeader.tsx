@@ -181,7 +181,7 @@ export const SessionBookingModal = ({
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-black text-base font-semibold md:text-lg">
+                  <label className="text-black text-lg font-semibold md:text-lg">
                     Choose a service
                   </label>
                   <select
@@ -200,7 +200,7 @@ export const SessionBookingModal = ({
 
                 <div className="p-4 rounded-lg border border-black/25 space-y-4">
                   <div className="pb-2 border-b border-black/20">
-                    <h3 className="text-base font-semibold md:text-lg">
+                    <h3 className="text-lg font-semibold md:text-lg">
                       Date and Time
                     </h3>
                   </div>
@@ -277,7 +277,7 @@ export const SessionBookingModal = ({
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-black text-base font-semibold md:text-lg">
+                  <label className="text-black text-lg font-semibold md:text-lg">
                     Pick a location
                   </label>
                   <select
@@ -299,7 +299,7 @@ export const SessionBookingModal = ({
                 <div>
                   <label
                     htmlFor="specialRequest"
-                    className="block text-base font-semibold md:text-lg text-black"
+                    className="block text-lg font-semibold md:text-lg text-black"
                   >
                     Special request
                   </label>
@@ -629,7 +629,7 @@ export const SessionBookingModal = ({
                         ? `Booking Successful!`
                         : `Booking Failed!`}
                     </h3>
-                    <p className="text-base text-black/70 max-w-md">
+                    <p className="text-lg text-black/70 max-w-md">
                       {isSubmitSucess
                         ? ` Your booking has been sent to us. You will receive a confirmation email shortly.`
                         : ` We couldn't process your booking at this time. Please try again or contact support.`}
@@ -682,25 +682,25 @@ const NavHeader = () => {
         <div className="lg:flex items-center gap-4 hidden">
           <a
             href="#pricing"
-            className="text-base font-normal text-black leading-relaxed tracking-tight"
+            className="text-lg font-normal text-black leading-relaxed tracking-tight"
           >
             Pricing
           </a>
-          <span className="text-black/20 text-base font-light leading-relaxed tracking-tight">
+          <span className="text-black/20 text-lg font-light leading-relaxed tracking-tight">
             /
           </span>
           <a
             href="#services"
-            className="text-base font-normal text-black leading-relaxed tracking-tight"
+            className="text-lg font-normal text-black leading-relaxed tracking-tight"
           >
             Services
           </a>
-          <span className="text-black/20 text-base font-light leading-relaxed tracking-tight">
+          <span className="text-black/20 text-lg font-light leading-relaxed tracking-tight">
             /
           </span>
           <a
             href="#contact"
-            className="text-base font-normal text-black leading-relaxed tracking-tight"
+            className="text-lg font-normal text-black leading-relaxed tracking-tight"
           >
             Contact us
           </a>
@@ -710,7 +710,7 @@ const NavHeader = () => {
             setIsModalOpen(true);
             console.log("setIsModalOpen(true)");
           }}
-          className="h-10 px-4 rounded-2xl border border-black/25 text-black text-base font-normal leading-relaxed tracking-tight lg:inline-block hidden"
+          className="h-10 px-4 rounded-2xl border border-black/25 text-black text-lg font-normal leading-relaxed tracking-tight lg:inline-block hidden"
         >
           Book a session
         </button>

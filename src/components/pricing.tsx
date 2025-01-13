@@ -132,10 +132,10 @@ const PricingSection = () => {
                     <div className="flex flex-col w-full">
                         <div className="p-4 rounded-2xl border border-white justify-between items-center inline-flex w-full relative" onClick={() => openStudioDropDown(!studioDropDown)}>
                             <div className="flex justify-start items-center gap-6">
-                                <div className="text-base  md:text-xl font-normal leading-relaxed tracking-tight">
+                                <div className="text-lg  md:text-xl font-normal leading-relaxed tracking-tight">
                                     1.
                                 </div>
-                                <div className="text-base md:text-xl font-normal leading-relaxed tracking-tight">
+                                <div className="text-lg md:text-xl font-normal leading-relaxed tracking-tight">
                                     Studio makeup session
                                 </div>
                             </div>
@@ -182,10 +182,10 @@ const PricingSection = () => {
                     <div className="flex flex-col w-full">
                         <div className="p-4 rounded-2xl border border-white justify-between items-center inline-flex w-full" onClick={() => openHomeDropDown(!homeDropDown)}>
                             <div className="flex justify-between items-center gap-6">
-                                <div className="text-base md:text-xl font-normal leading-relaxed tracking-tight">
+                                <div className="text-lg md:text-xl font-normal leading-relaxed tracking-tight">
                                     2.
                                 </div>
-                                <div className="text-base md:text-xl font-normal leading-relaxed tracking-tight">
+                                <div className="text-lg md:text-xl font-normal leading-relaxed tracking-tight">
                                     Home service makeup session
                                 </div>
                             </div>
