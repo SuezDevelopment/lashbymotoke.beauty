@@ -55,13 +55,13 @@ const RecentWorksSection = () => {
             <div className="self-stretch md:px-20 md:mx-[19rem] m md:flex justify-between items-center ">
                 <div className="grow shrink basis-0 h-12 px-6 py-2.5  mx-[2rem] border-l-8 border-black justify-start items-center gap-2.5 flex">
                     <div className="text-left text-black text-xl md:text-2xl font-bold leading-loose">
-                        MY MOST RECENT MAKEUP
+                        RECENT LASH WORKS
                     </div>
                 </div>
                 <div className="grow mt-12 md:mt-0 shrink basis-0 mx-[2rem] text-black text-lg font-normal md:text-xl leading-relaxed tracking-tight">
-                    Check out my recent makeup lineups below for a glimpse into my latest
-                    creations! From bold and glamorous to soft and natural, each look
-                    showcases my passion for artistry and attention to detail.
+                    Explore our latest lash looks—from natural classics to bold volume sets.
+                    Each style showcases precision application, long-lasting wear, and
+                    artistry tailored to enhance your features.
                 </div>
             </div>
             <div className="relative w-full max-w-7xl px-4">
@@ -84,7 +84,7 @@ const RecentWorksSection = () => {
                         >
                             <Image
                                 src={imageUrls[currentIndex]}
-                                alt={`Eunice Makeover ${currentIndex}`}
+                                alt={`LashByMotoke Work ${currentIndex}`}
                                 className="h-80 md:h-full rounded-3xl shadow-lg object-cover"
                                 style={{ height: '600px' }}
                                 width={600}
@@ -105,7 +105,7 @@ const RecentWorksSection = () => {
 
                                 <Image
                                     src={imageUrls[(currentIndex + 1) % imageUrls.length]}
-                                    alt={`Eunice Makeover ${(currentIndex + 1) % imageUrls.length}`}
+                                    alt={`LashByMotoke Work ${(currentIndex + 1) % imageUrls.length}`}
                                     className="h-80 md:h-full rounded-3xl shadow-lg object-cover"
                                     style={{ height: '600px' }}
                                     width={600}

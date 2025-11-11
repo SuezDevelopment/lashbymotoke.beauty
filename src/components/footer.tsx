@@ -4,7 +4,7 @@ const FooterSection = () => {
     <footer className="py-4 bg-[#a68ea5]/10"> 
       <div className="container mx-auto px-4 flex flex-col sm:flex-row justify-between md:justify-center items-center">
         <div className="text-black text-base font-normal leading-relaxed tracking-tight mb-2 sm:mb-0">
-          &copy; {currentYear} Eunicemakeover
+          &copy; {currentYear} LashByMotoke
         </div>
         <div className="flex items-center gap-4">
         <span className="text-black text-base font-bold leading-relaxed tracking-tight hidden md:block md:">

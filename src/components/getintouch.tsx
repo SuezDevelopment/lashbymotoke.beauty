@@ -90,8 +90,8 @@ const GetInTouchSection = () => {
             <div className="email socials flex flex-col gap-4">
               <div className="flex items-center gap-2">
                 <BsEnvelopePaper color='black' size={24} />
-                <a href="mailto:contact@eunicemakeover.com.ng" className="text-black text-lg font-normal leading-relaxed tracking-tight hover:underline">
-                  contact@eunicemakeover.com.ng
+                <a href="mailto:contact@lashbymotoke.beauty" className="text-black text-lg font-normal leading-relaxed tracking-tight hover:underline">
+                  contact@lashbymotoke.beauty
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -107,13 +107,13 @@ const GetInTouchSection = () => {
               </div>
 
               <div className="flex items-center gap-4 cursor-pointer">
-                <a href="https://www.instagram.com/unice_makeover_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/lashbymotoke/" target="_blank" rel="noopener noreferrer">
                   <FaInstagram color='black' size={24} />
                 </a>
                 <a href="https://wa.me/message/NXQ34HB55DEII1" target="_blank" rel="noopener noreferrer">
                   <FaWhatsapp color='black' size={24} />
                 </a>
-                <a href="https://www.facebook.com/oyekan.eunice.1?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/lashbymotoke" target="_blank" rel="noopener noreferrer">
                   <FaFacebookSquare color='black' size={24} />
                 </a>
               </div>

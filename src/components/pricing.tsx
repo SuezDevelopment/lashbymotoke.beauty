@@ -37,9 +37,9 @@ const PricingSection = () => {
     const studioServices: ServiceSession[] = [
         {
             image: StudioSess.src,
-            title: "Studio makeup session",
+            title: "Studio lash session",
             price_per_session: "₦ 25,000 Per session",
-            description: "Have your makeup professionally done in our makeup store any week days and weekend from 9AM - 6PM",
+            description: "Get premium lash extensions or refills in our studio—available weekdays and weekends from 9AM - 6PM",
             location: "134 Ahmadu bello way, victoria island, Lagos",
             open_days: "Monday - Saturday",
             duration: "1hr",
@@ -49,18 +49,18 @@ const PricingSection = () => {
     const homeServices: ServiceSession[] = [
         {
             image: MainlandSess.src,
-            title: "Home service makeup session (Mainland)",
+            title: "Home service lash session (Mainland)",
             price_per_session: "₦ 50,000 Per session",
-            description: "Book a home service makeup session with us. Prices varies from location to location.",
+            description: "Book an at-home lash session with us. Prices vary by location.",
             location: "Yaba, Ikeja, Surulere.",
             open_days: "Monday - Sunday",
             duration: "1hr 30mins",
         },
         {
             image: Island1Sess.src,
-            title: "Home service makeup session (Island)",
+            title: "Home service lash session (Island)",
             price_per_session: "₦ 40,000 Per session",
-            description: "Book a home service makeup session with us. Prices varies from location to location.",
+            description: "Book an at-home lash session with us. Prices vary by location.",
             location: "Victoria island, Ikoyi, Banana island.",
             open_days: "Monday - Sunday",
             duration: "1hr 30mins",
@@ -68,18 +68,18 @@ const PricingSection = () => {
 
         {
             image: Island2Sess.src,
-            title: "Home service makeup session (Island)",
+            title: "Home service lash session (Island)",
             price_per_session: "₦ 35,000 Per session",
-            description: "Book a home service makeup session with us. Prices varies from location to location.",
+            description: "Book an at-home lash session with us. Prices vary by location.",
             location: "Lekki, Ikate, Chevron.",
             open_days: "Monday - Sunday",
             duration: "1hr 30mins",
         },
         {
             image: Island3Sess.src,
-            title: "Home service makeup session (Island)",
+            title: "Home service lash session (Island)",
             price_per_session: "₦ 40,000 Per session",
-            description: "Book a home service makeup session with us. Prices varies from location to location.",
+            description: "Book an at-home lash session with us. Prices vary by location.",
             location: "Ajah, Lekki garden.",
             open_days: "Monday - Sunday",
             duration: "1hr 30mins",
@@ -136,7 +136,7 @@ const PricingSection = () => {
                                     1.
                                 </div>
                                 <div className="text-lg md:text-xl font-normal leading-relaxed tracking-tight">
-                                    Studio makeup session
+                                    Studio lash session
                                 </div>
                             </div>
                             <div className="cursor-pointer">
@@ -186,7 +186,7 @@ const PricingSection = () => {
                                     2.
                                 </div>
                                 <div className="text-lg md:text-xl font-normal leading-relaxed tracking-tight">
-                                    Home service makeup session
+                                    Home service lash session
                                 </div>
                             </div>
                             <div className="cursor-pointer">

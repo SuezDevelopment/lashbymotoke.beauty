@@ -15,7 +15,7 @@ const MeSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    <img src={RedMid.src} alt="Eunice Makeover 1" className="w-full h-80 md:h-96 rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform object-cover" />
+                    <img src={RedMid.src} alt="LashByMotoke Gallery 1" className="w-full h-80 md:h-96 rounded-tl-3xl rounded-br-3xl shadow-lg transform transition-transform object-cover" />
                 </motion.div>
 
                 <motion.div
@@ -24,7 +24,7 @@ const MeSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                    <img src={RedMid.src} alt="Eunice Makeover 2" className="w-full h-80 md:h-96 rounded-tl-3xl rounded-br-3xl shadow-lg upside-down transform transition-transform filter grayscale object-cover" />
+                    <img src={RedMid.src} alt="LashByMotoke Gallery 2" className="w-full h-80 md:h-96 rounded-tl-3xl rounded-br-3xl shadow-lg upside-down transform transition-transform filter grayscale object-cover" />
                 </motion.div>
 
                 <motion.div
@@ -33,7 +33,7 @@ const MeSection = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.8 }}
                 >
-                    <img src={RedMid.src} alt="Eunice Makeover 3" className="w-full h-80 md:h-96 rounded-bl-3xl rounded-tr-3xl shadow-lg transform transition-transform filter my-image object-cover" />
+                    <img src={RedMid.src} alt="LashByMotoke Gallery 3" className="w-full h-80 md:h-96 rounded-bl-3xl rounded-tr-3xl shadow-lg transform transition-transform filter my-image object-cover" />
                 </motion.div>
             </motion.div>
             <motion.div
@@ -42,8 +42,8 @@ const MeSection = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
             >
-                <span className='text-lg md:text-xl font-light text-center max-w-[33rem]'>Makeup is my art, where creativity meets precision, all while delivering exceptional customer service.</span>
-                <span className='font-semibold  md:text-2xl'>-Eunice</span>
+                <span className='text-lg md:text-xl font-light text-center max-w-[33rem]'>Lash artistry is my craft—where precision meets care to deliver elegant, long-lasting results and exceptional client experience.</span>
+                <span className='font-semibold  md:text-2xl'>-Motoke</span>
             </motion.div>
         </section>
     );

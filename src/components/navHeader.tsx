@@ -176,7 +176,7 @@ export const SessionBookingModal = ({
                     <CloseButton onClick={handleClose} />
                   </div>
                   <p className="text-black/50 text-sm">
-                    Fill in the following to book a makeup appointment
+                    Fill in the following to book a lash appointment
                   </p>
                 </div>
 
@@ -193,7 +193,7 @@ export const SessionBookingModal = ({
                     className="w-full p-3 mr-9 rounded-lg font-semibold border border-black/30 focus:outline-none focus:ring-2"
                   >
                     <option value="">Select</option>
-                    <option value="studio">Studio makeup session</option>
+                    <option value="studio">Studio lash session</option>
                     <option value="home">Home service</option>
                   </select>
                 </div>
@@ -272,7 +272,7 @@ export const SessionBookingModal = ({
                     </button>
                   </div>
                   <p className="text-black/50 text-sm">
-                    Fill in the following to book a makeup appointment
+                    Fill in the following to book a lash appointment
                   </p>
                 </div>
 
@@ -360,7 +360,7 @@ export const SessionBookingModal = ({
                     </button>
                   </div>
                   <p className="text-black/50 text-sm">
-                    Fill in the following to book a makeup appointment
+                    Fill in the following to book a lash appointment
                   </p>
                 </div>
                 <div>
@@ -475,7 +475,7 @@ export const SessionBookingModal = ({
                     <div className="text-black/50">Service</div>
                     <div className="text-black">
                       {formData.serviceType == "studio"
-                        ? "Studio makeup session"
+                        ? "Studio lash session"
                         : "Home service session"}
                     </div>
                   </div>
@@ -584,8 +584,8 @@ export const SessionBookingModal = ({
                 <div className="border-b border-black/30 pb-4">
                   <div className="flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                      <span className="text-3xl font-light">Eunice</span>
-                      <span className="text-3xl font-bold">Makeover</span>
+                      <span className="text-3xl font-light">LashBy</span>
+                      <span className="text-3xl font-bold">Motoke</span>
                     </div>
                     <CloseButton
                       onClick={() => setIsModalOpen(false)}
@@ -670,13 +670,13 @@ const NavHeader = () => {
       <nav className="fixed top-0 left-0 w-full backdrop-blur-sm bg-white/30 shadow-lg px-4 py-4 sm:px-8 lg:px-20 flex items-center justify-between z-20">
         <div className="flex items-center gap-2">
           <span className="text-2xl md:text-3xl font-light text-black leading-loose">
-            Eunice
+            LashBy
           </span>
           <span className="text-xl font-normal text-black font-['Lato'] leading-loose">
             {" "}
           </span>
           <span className="text-2xl md:text-3xl font-bold text-black leading-loose">
-            Makeover
+            Motoke
           </span>
         </div>
         <div className="lg:flex items-center gap-4 hidden">

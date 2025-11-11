@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - eunice-makeovers
+name: Build and deploy Node.js app to Azure Web App - lashbymotoke
 
 on:
   push:
@@ -10,10 +10,10 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: eunice-makeovers    # set this to your application's name
+  AZURE_WEBAPP_NAME: lashbymotoke-webapp    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project
   NODE_VERSION: '20.16.0'          # set this to match the version in your package.json
-  ACR_NAME: eunice                # set this to your Azure Container Registry name
+  ACR_NAME: lashbymotokeacr                # set this to your Azure Container Registry name
 
 jobs:
   build-and-deploy:

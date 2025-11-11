@@ -7,7 +7,7 @@ export type CustomerReview = {
 const CustomerReviewsSection = () => {
     const reviews: CustomerReview[] = [
         {
-            review: "There’s no way i can explain to you! That makeup lasts all day",
+            review: "I can’t even explain—my lashes stayed flawless all day!",
             name: "SADE",
         },
 
@@ -17,11 +17,11 @@ const CustomerReviewsSection = () => {
         },
 
         {
-            review: "I love it when i do my makeup with Eunice! she gets me!",
+            review: "I love getting my lashes done by Motoke—she just gets me!",
             name: "BEATRICE.A",
         },
         {
-            review: "I love it when i do my makeup with Eunice! Its always flawless",
+            review: "Every set from Motoke is flawless—I’m obsessed!",
             name: " Normani.G",
         }
     ];

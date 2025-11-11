@@ -5,8 +5,9 @@ class MongoDbConnection {
   private db: any;
 
   constructor() {
-    this.client = new MongoClient('mongodb+srv://astrodev:79597959@cluster0.8ylkhdm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
-    this.db = this.client.db("eunicemakeover");
+    const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+    this.client = new MongoClient(mongoUri);
+    this.db = this.client.db(process.env.MONGO_DB_NAME || "lashbymotoke");
   }
 
   async connect(): Promise<void> {

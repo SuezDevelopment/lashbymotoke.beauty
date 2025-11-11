@@ -10,11 +10,11 @@ interface SEOProps {
 }
 
 export default function SEO({ title, description, ogImage, keywords }: SEOProps) {
-    const defaulName = "Eunice Makeove";
-    const defaultTitle = "Eunice Makeover - Professional Bridal & Photoshoot Makeup Artist in Lagos";
-    const defaultDescription = "Eunice Makeover is a renowned makeup artist specializing in bridal and photoshoot makeup in Lagos. With years of experience, Eunice creates stunning, customized looks that ensure you look radiant and flawless on your special day or camera-ready for any photoshoot. Book your appointment today!"
+    const defaulName = "LashByMotoke";
+    const defaultTitle = "LashByMotoke - Professional Lash Extensions & Brow Services in Lagos";
+    const defaultDescription = "LashByMotoke specializes in premium lash extensions, lash lifts, and brow styling in Lagos. Our meticulous artistry delivers long-lasting, camera-ready results tailored to your features. Book your appointment today for timeless, confidence-boosting beauty."
     const defaultOGImage = '/mbe.png'
-    const defaultKeywords = "eunice makeup, bridal makeup Lagos, photoshoot makeup Lagos, professional makeup artist Lagos, Eunice Makeover, makeup artist Nigeria, wedding makeup artist, bridal makeup artist Nigeria, photoshoot makeup artist Nigeria, beauty services Lagos, makeup artist services Lagos, glamorous bridal makeup"
+    const defaultKeywords = "lash extensions Lagos, brow shaping Lagos, lash lift Lagos, professional lash artist Lagos, LashByMotoke, beauty services Nigeria, volume lashes, classic lashes, hybrid lashes, brow lamination, lash and brow studio"
     title = title || defaultTitle
     description = description || defaultDescription
     ogImage = ogImage || defaultOGImage
@@ -37,7 +37,7 @@ export default function SEO({ title, description, ogImage, keywords }: SEOProps)
             <meta property="og:locale" content="en_US" />
             <meta property="og:site_name" content={defaultTitle} />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content={`https://eunicemakeover.com.ng${pathname}`} />
+            <meta property="og:url" content={`https://lashbymotoke.beauty${pathname}`} />
             <meta property="og:title" content={title || defaultTitle} />
             <meta property="og:description" content={description || defaultDescription} />
             <meta property="og:image" content={ogImage || defaultOGImage} />
