@@ -10,6 +10,12 @@ const FooterSection = () => {
         <span className="text-black text-base font-bold leading-relaxed tracking-tight hidden md:block md:">
             |
           </span>
+          <a href="/resources" className="text-black text-base font-normal leading-relaxed tracking-tight">
+            Resources
+          </a>
+          <span className="text-black text-base font-bold leading-relaxed tracking-tight">
+            |
+          </span>
           <a href="#" className="text-black text-base font-normal leading-relaxed tracking-tight">
             Privacy policy
           </a>

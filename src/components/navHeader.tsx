@@ -524,14 +524,14 @@ export const SessionBookingModal = ({
                       <span className="text-black/50">Price</span>
                       <span className="text-black">
                         {formData.serviceType == "studio"
-                          ? "₦ 25,000"
+                          ? "From ₦ 25,000"
                           : formData.scheduleLocation == "mainland"
-                          ? "₦ 50,000"
+                          ? "From ₦ 50,000"
                           : formData.scheduleLocation == "island-1"
-                          ? "40,000"
+                          ? "From ₦ 40,000"
                           : formData.scheduleLocation == "island-2"
-                          ? "35,000"
-                          : "40,000"}
+                          ? "From ₦ 35,000"
+                          : "From ₦ 40,000"}
                       </span>
                     </div>
                   </div>
@@ -551,7 +551,7 @@ export const SessionBookingModal = ({
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full py-3 bg-[#a68ea5] text-white rounded-lg hover:bg-[#957994] transition-colors"
+                    className="w-full py-3 rounded-full bg-pink-200 text-black hover:bg-pink-300 shadow-sm transition-colors"
                   >
                     {isLoading ? (
                       <motion.span
@@ -569,7 +569,7 @@ export const SessionBookingModal = ({
                   </button>
                   <button
                     onClick={() => setStep(1)}
-                    className="w-full py-3 border border-black/25 text-black rounded-lg transition-colors"
+                    className="w-full py-3 rounded-full bg-pink-50 text-black hover:bg-pink-100 shadow-sm transition-colors"
                   >
                     Edit
                   </button>
@@ -665,6 +665,26 @@ const NavHeader = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Listen for a global event to open the booking modal from any component.
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent<any>).detail || {};
+      setIsModalOpen(true);
+      // Optionally hydrate initial state via the modal's props if needed in future.
+      // For now, the user can choose between 'studio' and 'home' inside the modal.
+      // We could prefill values if provided in detail.
+      // Currently, the SessionBookingModal manages its own internal form state.
+    };
+    if (typeof window !== 'undefined') {
+      window.addEventListener('open-booking-modal', handler as EventListener);
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('open-booking-modal', handler as EventListener);
+      }
+    };
+  }, []);
+
   return (
     <>
       <nav className="fixed top-0 left-0 w-full backdrop-blur-sm bg-white/30 shadow-lg px-4 py-4 sm:px-8 lg:px-20 flex items-center justify-between z-20">
@@ -681,19 +701,28 @@ const NavHeader = () => {
         </div>
         <div className="lg:flex items-center gap-4 hidden">
           <a
-            href="#pricing"
+            href="#services"
             className="text-lg font-normal text-black leading-relaxed tracking-tight"
           >
-            Pricing
+            Services
           </a>
           <span className="text-black/20 text-lg font-light leading-relaxed tracking-tight">
             /
           </span>
           <a
-            href="#services"
+            href="/academy"
             className="text-lg font-normal text-black leading-relaxed tracking-tight"
           >
-            Services
+            Academy
+          </a>
+          <span className="text-black/20 text-lg font-light leading-relaxed tracking-tight">
+            /
+          </span>
+          <a
+            href="/resources"
+            className="text-lg font-normal text-black leading-relaxed tracking-tight"
+          >
+            Resources
           </a>
           <span className="text-black/20 text-lg font-light leading-relaxed tracking-tight">
             /
@@ -760,6 +789,24 @@ const NavHeader = () => {
                   className="text-2xl font-normal text-black leading-relaxed tracking-tight block text-center"
                 >
                   Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/academy"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-normal text-black leading-relaxed tracking-tight block text-center"
+                >
+                  Academy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/resources"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-2xl font-normal text-black leading-relaxed tracking-tight block text-center"
+                >
+                  Resources
                 </a>
               </li>
               <li>

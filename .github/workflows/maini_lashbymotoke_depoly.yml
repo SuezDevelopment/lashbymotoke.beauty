@@ -10,10 +10,10 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: lashbymotoke-webapp    # set this to your application's name
+  AZURE_WEBAPP_NAME: lashbymotoke    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'   # set this to the path to your web app project
   NODE_VERSION: '20.16.0'          # set this to match the version in your package.json
-  ACR_NAME: lashbymotokeacr                # set this to your Azure Container Registry name
+  ACR_NAME: lashbymotoke                # set this to your Azure Container Registry name
 
 jobs:
   build-and-deploy:
