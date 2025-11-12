@@ -55,13 +55,13 @@ const RecentWorksSection = () => {
             <div className="self-stretch md:px-20 md:mx-[19rem] m md:flex justify-between items-center ">
                 <div className="grow shrink basis-0 h-12 px-6 py-2.5  mx-[2rem] border-l-8 border-black justify-start items-center gap-2.5 flex">
                     <div className="text-left text-black text-xl md:text-2xl font-bold leading-loose">
-                        RECENT LASH WORKS
+                        LATEST BEAUTY TRANSFORMATIONS
                     </div>
                 </div>
                 <div className="grow mt-12 md:mt-0 shrink basis-0 mx-[2rem] text-black text-lg font-normal md:text-xl leading-relaxed tracking-tight">
-                    Explore our latest lash looks—from natural classics to bold volume sets.
-                    Each style showcases precision application, long-lasting wear, and
-                    artistry tailored to enhance your features.
+                    Discover our most recent beauty services—ranging from subtle enhancements to striking statement looks.
+                    Every creation highlights meticulous technique, enduring quality, and
+                    personalized artistry designed to accentuate your natural allure.
                 </div>
             </div>
             <div className="relative w-full max-w-7xl px-4">
