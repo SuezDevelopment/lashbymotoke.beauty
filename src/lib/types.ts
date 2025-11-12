@@ -177,3 +177,19 @@ export interface Resource {
   createdAt?: string;
   updatedAt?: string;
 }
+
+// Shared booking types
+export type ServiceType = 'studio' | 'home';
+export type HomeServiceLocation = 'mainland' | 'island-1' | 'island-2' | 'island-3';
+export interface SessionBooking {
+  serviceType: ServiceType;
+  scheduleDate: string; // ISO yyyy-mm-dd
+  scheduleTime: string; // HH:mm
+  scheduleLocation?: HomeServiceLocation;
+  scheduleDuration?: string; // e.g., "1hr", "1hr 30mins"
+  specialRequest?: string;
+  fullName: string;
+  phoneNumber: string;
+  emailAddress: string;
+  homeAddress?: string;
+}

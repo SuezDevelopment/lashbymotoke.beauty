@@ -12,6 +12,7 @@ export interface SessionBookingFormData {
   scheduleDate: string;
   scheduleTime: string;
   scheduleLocation: string;
+  scheduleDuration: string;
   specialRequest: string;
   fullName: string;
   phoneNumber: string;
@@ -40,6 +41,7 @@ export const SessionBookingModal = ({
       scheduleDate: "",
       scheduleTime: "",
       scheduleLocation: "",
+      scheduleDuration: "",
       specialRequest: "",
       fullName: "",
       phoneNumber: "",
@@ -73,9 +75,9 @@ export const SessionBookingModal = ({
       }
     }
     if (step === 2) {
-      const { scheduleLocation, specialRequest } = formData;
-      if (!scheduleLocation || !specialRequest) {
-        setError("Please fill in all fields");
+      const { scheduleLocation } = formData;
+      if (!scheduleLocation) {
+        setError("Please select a location");
         return;
       }
       setStep(3);
@@ -108,9 +110,12 @@ export const SessionBookingModal = ({
       return emailRegex.test(email);
     };
 
-    if (name === "emailAddress" && !isValidEmail(value)) {
+    if (name === "emailAddress" && value && !isValidEmail(value)) {
       setError("Please enter a valid email address");
-    } else if (name === "phoneNumber" && !/^\d{10}$/.test(value)) {
+    } else if (
+      name === "phoneNumber" && value &&
+      !(/^(\+?\d{10,15}|0\d{10,11})$/.test(value))
+    ) {
       setError("Please enter a valid phone number");
     }
   };
@@ -534,6 +539,17 @@ export const SessionBookingModal = ({
                           : "From ₦ 40,000"}
                       </span>
                     </div>
+
+                    {/* Duration */}
+                    <div className="flex gap-2 mt-2">
+                      <span className="text-black/50">Duration</span>
+                      <span className="text-black">
+                        {formData.scheduleDuration ||
+                          (formData.serviceType === "studio"
+                            ? "1hr"
+                            : "1hr 30mins")}
+                      </span>
+                    </div>
                   </div>
 
                   {formData.serviceType == "home" && (
@@ -773,15 +789,6 @@ const NavHeader = () => {
             }`}
           >
             <ul className="py-10 px-6 flex flex-col items-start justify-between h-[50vh]">
-              <li>
-                <a
-                  href="#pricing"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-2xl font-normal text-black leading-relaxed tracking-tight block text-center"
-                >
-                  Pricing
-                </a>
-              </li>
               <li>
                 <a
                   href="#services"

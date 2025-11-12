@@ -19,16 +19,41 @@ class EmailService {
         return template(data);
       }
 
-    async sendEmail(
-        { senderAddress, recipientAddress, subject, templateName, templateData }: {
+    async renderTemplate(templateName: string, data: Record<string, any>): Promise<string> {
+        return this.loadTemplate(templateName, data);
+    }
+
+    async sendEmail(params:
+        | {
             senderAddress: string,
             recipientAddress: string,
             subject: string,
             templateName: string,
             templateData: Record<string, any>
         }
+        | {
+            fromAddress: string,
+            toAddress: string,
+            subject: string,
+            content: string
+        }
     ): Promise<void> {
-        const htmlContent = await this.loadTemplate(templateName, templateData);
+        let senderAddress: string;
+        let recipientAddress: string;
+        let subject: string;
+        let htmlContent: string;
+
+        if ('templateName' in params) {
+            senderAddress = params.senderAddress;
+            recipientAddress = params.recipientAddress;
+            subject = params.subject;
+            htmlContent = await this.loadTemplate(params.templateName, params.templateData);
+        } else {
+            senderAddress = params.fromAddress;
+            recipientAddress = params.toAddress;
+            subject = params.subject;
+            htmlContent = params.content;
+        }
 
         const message: EmailMessage = {
             senderAddress,

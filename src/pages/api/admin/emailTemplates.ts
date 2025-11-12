@@ -47,7 +47,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       // Try cache for list request only
       if (!nameParam) {
-        const cached = await Cache.get(CACHE_KEYS.TEMPLATES).catch(() => null);
+        const cached = Cache.get<any[]>(CACHE_KEYS.EMAIL_TEMPLATES);
         if (cached && Array.isArray(cached)) {
           return res.status(200).json({ status: true, items: cached });
         }
@@ -72,11 +72,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const items = await col.find({}).sort({ name: 1 }).limit(500).toArray();
       if (!items || items.length === 0) {
         const defaults = await readDefaultTemplates();
-        await Cache.set(CACHE_KEYS.TEMPLATES, defaults, 300).catch(() => {});
+        Cache.set(CACHE_KEYS.EMAIL_TEMPLATES, defaults, 300);
         await logAudit(session, 'templates:list', 'template', { count: defaults.length, source: 'filesystem' });
         return res.status(200).json({ status: true, items: defaults });
       }
-      await Cache.set(CACHE_KEYS.TEMPLATES, items, 300).catch(() => {});
+      Cache.set(CACHE_KEYS.EMAIL_TEMPLATES, items, 300);
       await logAudit(session, 'templates:list', 'template', { count: items.length });
       return res.status(200).json({ status: true, items });
     }
@@ -88,7 +88,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       doc.updatedAt = new Date().toISOString();
       await col.updateOne({ name: doc.name }, { $set: doc }, { upsert: true });
       await logAudit(session, 'templates:save', 'template', { name: doc.name });
-      await Cache.del(CACHE_KEYS.TEMPLATES);
+      await Cache.del(CACHE_KEYS.EMAIL_TEMPLATES);
       return res.status(200).json({ status: true, message: 'Saved' });
     }
 
@@ -101,7 +101,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       update.updatedAt = new Date().toISOString();
       await col.updateOne({ _id: new ObjectId(String(idParam)) }, { $set: update });
       await logAudit(session, 'templates:update', 'template', { resourceId: String(idParam), ...sanitizeTemplate(update) });
-      await Cache.del(CACHE_KEYS.TEMPLATES);
+      await Cache.del(CACHE_KEYS.EMAIL_TEMPLATES);
       return res.status(200).json({ status: true, message: 'Updated' });
     }
 
@@ -112,7 +112,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const idParam = Array.isArray(id) ? id[0] : id;
       await col.deleteOne({ _id: new ObjectId(String(idParam)) });
       await logAudit(session, 'templates:delete', 'template', { resourceId: String(idParam) });
-      await Cache.del(CACHE_KEYS.TEMPLATES);
+      await Cache.del(CACHE_KEYS.EMAIL_TEMPLATES);
       return res.status(200).json({ status: true, message: 'Deleted' });
     }
 

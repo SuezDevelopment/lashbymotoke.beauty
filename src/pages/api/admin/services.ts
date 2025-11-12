@@ -21,12 +21,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (req.method === 'GET') {
       if (!hasPerm(session, 'services:read')) return res.status(403).json({ status: false, message: 'Forbidden' });
-      const cached = await Cache.get(CACHE_KEYS.SERVICES).catch(() => null);
+      const cached = Cache.get<any[]>(CACHE_KEYS.SERVICES_LIST);
       if (cached && Array.isArray(cached)) {
         return res.status(200).json({ status: true, items: cached });
       }
       const items = await col.find({}).sort({ name: 1 }).limit(500).toArray();
-      await Cache.set(CACHE_KEYS.SERVICES, items, 300).catch(() => {});
+      Cache.set(CACHE_KEYS.SERVICES_LIST, items, 300);
       await logAudit(session, 'services:list', 'service', { count: items.length });
       return res.status(200).json({ status: true, items });
     }
@@ -39,7 +39,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       doc.updatedAt = new Date().toISOString();
       await col.insertOne(doc);
       await logAudit(session, 'services:create', 'service', { name: doc.name, slug: doc.slug });
-      await Cache.del(CACHE_KEYS.SERVICES);
+      await Cache.del(CACHE_KEYS.SERVICES_LIST);
       return res.status(200).json({ status: true, message: 'Created' });
     }
 
@@ -52,7 +52,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       update.updatedAt = new Date().toISOString();
       await col.updateOne({ _id: new ObjectId(String(idParam)) }, { $set: update });
       await logAudit(session, 'services:update', 'service', { resourceId: String(idParam), ...sanitizeService(update) });
-      await Cache.del(CACHE_KEYS.SERVICES);
+      await Cache.del(CACHE_KEYS.SERVICES_LIST);
       return res.status(200).json({ status: true, message: 'Updated' });
     }
 
@@ -63,7 +63,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const idParam = Array.isArray(id) ? id[0] : id;
       await col.deleteOne({ _id: new ObjectId(String(idParam)) });
       await logAudit(session, 'services:delete', 'service', { resourceId: String(idParam) });
-      await Cache.del(CACHE_KEYS.SERVICES);
+      await Cache.del(CACHE_KEYS.SERVICES_LIST);
       return res.status(200).json({ status: true, message: 'Deleted' });
     }
 

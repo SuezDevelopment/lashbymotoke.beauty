@@ -1,9 +1,9 @@
-import { MongoClient, ServerApiVersion, Collection, Filter, ObjectId, Document } from 'mongodb';
+import { MongoClient, Collection, Filter, ObjectId, Document, Db } from 'mongodb';
 import type { Resource } from '@/lib/types';
 
 class MongoDbConnection {
   private client: MongoClient;
-  private db: any;
+  private db: Db;
 
   constructor() {
     const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
@@ -31,7 +31,7 @@ class MongoDbConnection {
     }
   }
 
-  async getCollection<T = Document>(collectionName: string): Promise<Collection<T>>  {
+  async getCollection<T extends Document = Document>(collectionName: string): Promise<Collection<T>>  {
     return this.db.collection<T>(collectionName);
   }
 }

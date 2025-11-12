@@ -27,6 +27,7 @@ const PricingSection = () => {
         scheduleDate: '',
         scheduleTime: '',
         scheduleLocation: '',
+        scheduleDuration: '',
         specialRequest: '',
         fullName: '',
         phoneNumber: '',
@@ -106,6 +107,7 @@ const PricingSection = () => {
             scheduleDate: '',
             scheduleTime: '',
             scheduleLocation: '',
+            scheduleDuration: '',
             specialRequest: '',
             fullName: '',
             phoneNumber: '',
@@ -166,7 +168,10 @@ const PricingSection = () => {
                                                             <span className='font-bold'>Duration:</span> {service.duration}
                                                         </p>
                                                     </div>
-                                                    <div onClick={() => handleSessionBooking([{ name: 'serviceType', value: "studio" }])} className="sticky bottom-0 left-0 right-0 bg-black pt-2">
+                                                    <div onClick={() => handleSessionBooking([
+                                                        { name: 'serviceType', value: "studio" },
+                                                        { name: 'scheduleDuration', value: service.duration }
+                                                    ])} className="sticky bottom-0 left-0 right-0 bg-black pt-2">
                                                         <button className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 p-2 rounded transition-colors w-full">
                                                             Book Now
                                                         </button>
@@ -217,7 +222,11 @@ const PricingSection = () => {
                                                         </p>
                                                     </div>
                                                     <div className="sticky bottom-0 left-0 right-0 bg-black pt-2">
-                                                        <button onClick={() => handleSessionBooking([{ name: 'serviceType', value: "home" }, { name: 'scheduleLocation', value: `${index == 0 ? 'mainland' : `island-${index}`}` }])} className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 p-2 rounded transition-colors w-full">
+                                                        <button onClick={() => handleSessionBooking([
+                                                            { name: 'serviceType', value: "home" },
+                                                            { name: 'scheduleLocation', value: `${index == 0 ? 'mainland' : `island-${index}`}` },
+                                                            { name: 'scheduleDuration', value: service.duration }
+                                                        ])} className="bg-[#A68EA5] text-primary-foreground hover:bg-primary/80 p-2 rounded transition-colors w-full">
                                                             Book Now
                                                         </button>
                                                     </div>

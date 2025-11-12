@@ -1,0 +1,5 @@
+# Replace Azure Communication Services connection strings and keys
+regex:endpoint=https://[^\s;]+\.communication\.azure\.com/;accesskey=[^\s]+ ==> endpoint=REDACTED;accesskey=REDACTED
+regex:accesskey=[0-9A-Za-z+/=]+ ==> accesskey=REDACTED
+regex:COMMUNICATION_SERVICE_CONNECTION_STRING\s*=\s*"[^\"]+" ==> COMMUNICATION_SERVICE_CONNECTION_STRING="REDACTED"
+regex:COMMUNICATION_SERVICE_CONNECTION_STRING\s*=\s*'[^']+' ==> COMMUNICATION_SERVICE_CONNECTION_STRING='REDACTED'

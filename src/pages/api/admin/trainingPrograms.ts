@@ -21,12 +21,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (req.method === 'GET') {
       if (!hasPerm(session, 'trainings:read')) return res.status(403).json({ status: false, message: 'Forbidden' });
-      const cached = await Cache.get(CACHE_KEYS.TRAININGS).catch(() => null);
+      const cached = Cache.get<any[]>(CACHE_KEYS.TRAINING_PROGRAMS);
       if (cached && Array.isArray(cached)) {
         return res.status(200).json({ status: true, items: cached });
       }
       const items = await col.find({}).sort({ name: 1 }).limit(500).toArray();
-      await Cache.set(CACHE_KEYS.TRAININGS, items, 300).catch(() => {});
+      Cache.set(CACHE_KEYS.TRAINING_PROGRAMS, items, 300);
       await logAudit(session, 'trainings:list', 'training', { count: items.length });
       return res.status(200).json({ status: true, items });
     }
@@ -39,7 +39,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       doc.updatedAt = new Date().toISOString();
       await col.insertOne(doc);
       await logAudit(session, 'trainings:create', 'training', { name: doc.name, type: doc.type });
-      await Cache.del(CACHE_KEYS.TRAININGS);
+      await Cache.del(CACHE_KEYS.TRAINING_PROGRAMS);
       return res.status(200).json({ status: true, message: 'Created' });
     }
 
@@ -52,7 +52,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       update.updatedAt = new Date().toISOString();
       await col.updateOne({ _id: new ObjectId(String(idParam)) }, { $set: update });
       await logAudit(session, 'trainings:update', 'training', { resourceId: String(idParam), ...sanitizeTraining(update) });
-      await Cache.del(CACHE_KEYS.TRAININGS);
+      await Cache.del(CACHE_KEYS.TRAINING_PROGRAMS);
       return res.status(200).json({ status: true, message: 'Updated' });
     }
 
@@ -63,7 +63,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const idParam = Array.isArray(id) ? id[0] : id;
       await col.deleteOne({ _id: new ObjectId(String(idParam)) });
       await logAudit(session, 'trainings:delete', 'training', { resourceId: String(idParam) });
-      await Cache.del(CACHE_KEYS.TRAININGS);
+      await Cache.del(CACHE_KEYS.TRAINING_PROGRAMS);
       return res.status(200).json({ status: true, message: 'Deleted' });
     }
 
