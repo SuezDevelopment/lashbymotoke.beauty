@@ -17,10 +17,12 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   if (!session) {
     return { redirect: { destination: '/admin/login', permanent: false } };
   }
-  return { props: {} };
+  const role = (session as any).role || (session as any).user?.role || 'viewer';
+  const permissions: string[] = (session as any).permissions || (session as any).user?.permissions || [];
+  return { props: { role, permissions } };
 };
 
-const AdminHomePage: NextPage = () => {
+const AdminHomePage: NextPage<{ role: string; permissions: string[] }> = ({ role, permissions }) => {
   const [summary, setSummary] = useState<CountSummary>({ users: 0, services: 0, trainings: 0, applications: 0, templates: 0 });
   const [loading, setLoading] = useState(false);
 
@@ -50,16 +52,22 @@ const AdminHomePage: NextPage = () => {
   }, []);
 
   const cards = [
-    { href: '/admin/users', title: 'Users', count: summary.users, desc: 'Manage admin users, roles, and permissions.' },
-    { href: '/admin/services', title: 'Services', count: summary.services, desc: 'Configure service categories and offerings.' },
-    { href: '/admin/trainings', title: 'Academy', count: summary.trainings, desc: 'Manage training programs and levels.' },
-    { href: '/admin/applications', title: 'Applications', count: summary.applications, desc: 'View training applications and statuses.' },
-    { href: '/admin/email-templates', title: 'Email Templates', count: summary.templates, desc: 'Edit and save email templates.' },
-    { href: '/admin/resources', title: 'Resources', count: undefined, desc: 'Create and manage site resources.' },
-    { href: '/admin/audit', title: 'Audit Logs', count: undefined, desc: 'Review admin actions and changes.' },
-    { href: '/admin/analytics', title: 'Analytics', count: undefined, desc: 'View site analytics and admin KPIs.' },
+    { href: '/admin/users', title: 'Users', count: summary.users, desc: 'Manage admin users, roles, and permissions.', perm: 'users:read' },
+    { href: '/admin/services', title: 'Services', count: summary.services, desc: 'Configure service categories and offerings.', perm: 'services:read' },
+    { href: '/admin/trainings', title: 'Trainings', count: summary.trainings, desc: 'Manage training programs and levels.', perm: 'trainings:read' },
+    { href: '/admin/applications', title: 'Applications', count: summary.applications, desc: 'View training applications and statuses.', perm: 'applications:read' },
+    { href: '/admin/email-templates', title: 'Email Templates', count: summary.templates, desc: 'Edit and save email templates.', perm: 'templates:read' },
+    { href: '/admin/resources', title: 'Resources', count: undefined, desc: 'Create and manage site resources.', perm: 'resources:read' },
+    { href: '/admin/audit', title: 'Audit Logs', count: undefined, desc: 'Review admin actions and changes.', perm: 'audit:read' },
+    { href: '/admin/analytics', title: 'Analytics', count: undefined, desc: 'View site analytics and admin KPIs.', perm: 'analytics:read' },
     { href: '/admin/settings', title: 'Settings', count: undefined, desc: 'Configure site and admin settings.' },
   ];
+
+  const visibleCards = cards.filter(c => {
+    // Settings is visible to all authenticated roles; others require specific read permissions
+    if (!c.perm) return true;
+    return permissions.includes(c.perm);
+  });
 
   return (
     <AdminLayout>
@@ -70,7 +78,7 @@ const AdminHomePage: NextPage = () => {
           <div className="mb-4 text-sm text-black/60">Loading summary…</div>
         )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {cards.map((c) => (
+          {visibleCards.map((c) => (
             <a key={c.href} href={c.href} className="block rounded-2xl bg-white/70 shadow-sm p-4 hover:bg-white transition-colors">
               <div className="flex items-center justify-between">
                 <div>

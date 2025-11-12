@@ -15,6 +15,8 @@ type CountSummary = {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const session = await getServerSession(ctx.req, ctx.res, authOptions);
   if (!session) return { redirect: { destination: '/admin/login', permanent: false } };
+  const permissions = (session as any).permissions || [];
+  if (!permissions.includes('analytics:read')) return { redirect: { destination: '/admin', permanent: false } };
   return { props: {} };
 };
 

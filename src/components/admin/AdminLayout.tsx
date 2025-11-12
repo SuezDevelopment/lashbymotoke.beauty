@@ -16,7 +16,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
           <Link href="/admin" className={headerLinkCls('/admin')}>Home</Link>
           <Link href="/admin/users" className={headerLinkCls('/admin/users')}>Users</Link>
           <Link href="/admin/services" className={headerLinkCls('/admin/services')}>Services</Link>
-          <Link href="/admin/trainings" className={headerLinkCls('/admin/trainings')}>Academy</Link>
+          <Link href="/admin/trainings" className={headerLinkCls('/admin/trainings')}>Trainings</Link>
           <Link href="/admin/applications" className={headerLinkCls('/admin/applications')}>Applications</Link>
           <Link href="/admin/email-templates" className={headerLinkCls('/admin/email-templates')}>Email Templates</Link>
         </nav>
@@ -27,7 +27,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
             <div className="space-y-2">
               <Link href="/admin/users" className={asideLinkCls('/admin/users')}>Users</Link>
               <Link href="/admin/services" className={asideLinkCls('/admin/services')}>Services</Link>
-              <Link href="/admin/trainings" className={asideLinkCls('/admin/trainings')}>Academy</Link>
+              <Link href="/admin/trainings" className={asideLinkCls('/admin/trainings')}>Trainings</Link>
               <Link href="/admin/applications" className={asideLinkCls('/admin/applications')}>Applications</Link>
               <Link href="/admin/email-templates" className={asideLinkCls('/admin/email-templates')}>Email Templates</Link>
               <Link href="/admin/resources" className={asideLinkCls('/admin/resources')}>Resources</Link>

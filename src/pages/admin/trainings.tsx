@@ -56,7 +56,7 @@ const AdminTrainingsPage: NextPage<{ canWrite: boolean }> = ({ canWrite }) => {
     <AdminLayout>
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-4">
-          <h1 className="text-xl font-semibold text-black">Academy — Training Programs</h1>
+          <h1 className="text-xl font-semibold text-black">Trainings — Programs</h1>
           {canWrite && <button onClick={openCreate} className="px-4 py-2 rounded-full bg-pink-200 hover:bg-pink-300 text-black">Create Program</button>}
         </div>
         <div className="rounded-xl bg-white/70 shadow-sm overflow-hidden">
